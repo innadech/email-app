@@ -10,12 +10,12 @@ import {
 } from './controller.js'
 
 console.log('view gut')
-elRegisterButton.onclick = onClickButtonRegister
-elLoginButton.onclick = onClickButtonLogin
-elIncomeButton.onclick = onClickButtonIncome
-elOutcomeButton.onclick = onClickButtonOutcome
-elAddress.onclick = onClickButtonAddress
-elSend.onclick = onClickButtonSend
+// elRegisterButton.onclick = onClickButtonRegister
+// elLoginButton.onclick = onClickButtonLoginf
+// elIncomeButton.onclick = onClickButtonIncome
+// elOutcomeButton.onclick = onClickButtonOutcome
+// elAddress.onclick = onClickButtonAddress
+// elSend.onclick = onClickButtonSend
 
 function onClickButtonRegister() {
   let email = emailSignup.value
@@ -63,11 +63,11 @@ function renderSendPage() {
   elH.textContent = 'Email is sent successful'
   elSendPage.appendChild(elH)
 }
-window.renderSendPage = renderSendPage
-window.renderMainPage = renderMainPage
-window.generateAllEmailsPage = generateAllEmailsPage
-window.generateAddress = generateAddress
-window.renderelEmailsListAddress = renderelEmailsListAddress
+// window.renderSendPage = renderSendPage
+// window.renderMainPage = renderMainPage
+// window.generateAllEmailsPage = generateAllEmailsPage
+// window.generateAddress = generateAddress
+// window.renderelEmailsListAddress = renderelEmailsListAddress
 
 function renderEmailsList(emails) {
   elEmailsList.innerHTML = ''
