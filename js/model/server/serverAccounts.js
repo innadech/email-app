@@ -1,6 +1,16 @@
 import makeId from '../shared/makeId.js'
+import {
+  saveAccounts,
+  restoreAccounts,
+  saveSessions,
+  restoreSessions,
+  saveSessionId,
+  restoreSessionId,
+} from './localStorage.js'
+// import * as x from './localStorage.js'
+// console.log(x)
 
-const serverAccounts = []
+const serverAccounts = restoreAccounts()
 
 function createAccount(email, passwd, firstName, lastName) {
   return {
@@ -21,17 +31,47 @@ function registerAccount(email, passwd, firstName, lastName) {
     return false
   } else {
     serverAccounts.push(account)
+    saveAccounts(serverAccounts)
+    console.log(serverAccounts)
     return true
   }
 
   // return true/false
 }
+let sessions = restoreSessions()
 
-function loginAccount(email, passwd) {
+function authenticate(email, passwd) {
   const account = serverAccounts.find(
     a => a.email === email && a.passwd === passwd
   )
-  return account
+  if (account) {
+    saveSessions(sessions)
+    saveSessionId(startSession(account.email))
+    return true
+  } else {
+    return false
+  }
+}
+function authorize() {
+  const email = sessions[restoreSessionId()]
+  const account = serverAccounts.find(account => account.email === email)
+  if (account) {
+    return { username: account.email }
+  }
+  return false
+}
+function startSession(email) {
+  const sessionId = Math.random()
+  sessions[sessionId] = email
+  return sessionId
 }
 
-export { loginAccount, registerAccount }
+// function loginAccount(email, passwd) {
+//   const account = serverAccounts.find(
+//     a => a.email === email && a.passwd === passwd
+//   )
+
+//   return account
+// }
+
+export { registerAccount, authenticate, authorize }

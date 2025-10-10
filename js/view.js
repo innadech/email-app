@@ -10,12 +10,25 @@ import {
 } from './controller.js'
 
 console.log('view gut')
-// elRegisterButton.onclick = onClickButtonRegister
-// elLoginButton.onclick = onClickButtonLoginf
-// elIncomeButton.onclick = onClickButtonIncome
-// elOutcomeButton.onclick = onClickButtonOutcome
-// elAddress.onclick = onClickButtonAddress
-// elSend.onclick = onClickButtonSend
+if (window.elRegisterButton) {
+  elRegisterButton.onclick = onClickButtonRegister
+}
+
+if (window.elLoginButton) {
+  elLoginButton.onclick = onClickButtonLogin
+}
+if (window.elIncomeButton) {
+  elIncomeButton.onclick = onClickButtonIncome
+}
+if (window.elOutcomeButton) {
+  elOutcomeButton.onclick = onClickButtonOutcome
+}
+if (window.elAddress) {
+  elAddress.onclick = onClickButtonAddress
+}
+if (window.elSend) {
+  elSend.onclick = onClickButtonSend
+}
 
 function onClickButtonRegister() {
   let email = emailSignup.value

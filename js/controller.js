@@ -33,6 +33,7 @@ function handleClientRegister(email, passwd, firstName, lastName) {
     // renderSignUpPage()
   }
 }
+
 function handleClientLogin(email, passwd) {
   const isOk = clientLogin(email, passwd)
   if (isOk) {

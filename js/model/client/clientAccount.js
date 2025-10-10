@@ -1,20 +1,40 @@
 // сервер не трогаем без клиента.
 // console.log(serverAccounts) // недоступен! и это хорошо!
 
-import { loginAccount, registerAccount } from '../server/serverAccounts.js'
+import {
+  registerAccount,
+  authenticate,
+  authorize,
+} from '../server/serverAccounts.js'
 
 const clientAccount = { current: null }
 
+// function clientLogin(email, passwd) {
+//   logout()
+//   const loggedAccount = loginAccount(email, passwd)
+//   if (loggedAccount) {
+//     clientAccount.current = loggedAccount
+//     console.log('Вход успешный!', clientAccount.current.email)
+//     return true
+//   } else {
+//     console.log('Неправильный логин и/или пароль')
+//     return false
+//   }
+// }
+
 function clientLogin(email, passwd) {
   logout()
-  const loggedAccount = loginAccount(email, passwd)
-  if (loggedAccount) {
-    clientAccount.current = loggedAccount
-    console.log('Вход успешный!', clientAccount.current.email)
+  const isauthenticated = authenticate(email, passwd)
+  if (!isauthenticated) {
+    console.log('не прошла успешно authenticate')
+  }
+  if (isauthenticated) {
+    const isAuthorized = authorize()
+    console.log('авторизация прошла')
     return true
-  } else {
-    console.log('Неправильный логин и/или пароль')
-    return false
+    if (!isAuthorized) {
+      console.log('авторизация не прошла')
+    }
   }
 }
 
