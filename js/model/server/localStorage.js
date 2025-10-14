@@ -7,6 +7,16 @@ function restoreAccounts() {
   const parsedAccounts = JSON.parse(stringifiedAccounts)
   return parsedAccounts ?? []
 }
+function saveEmails(emails) {
+  const stringifiedEmails = JSON.stringify(emails)
+  localStorage.setItem('emails', stringifiedAccounts)
+}
+function restoreEmails() {
+  const stringifiedEmails = localStorage.getItem('emails')
+  const parsedEmails = JSON.parse(stringifiedEmails)
+  return parsedEmails ?? []
+}
+
 function saveSessions(sessions) {
   const stringifiedSessions = JSON.stringify(sessions)
   localStorage.setItem('sessions', stringifiedSessions)
@@ -32,4 +42,6 @@ export {
   restoreSessions,
   saveSessionId,
   restoreSessionId,
+  saveEmails,
+  restoreEmails,
 }

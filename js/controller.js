@@ -1,7 +1,8 @@
 import {
-  clientLogin,
+  clientAuthenticate,
+  clientAuthorize,
   clientRegister,
-  // clientAccount,
+  clientAccount,
 } from './model/client/clientAccount.js'
 
 import {
@@ -14,33 +15,62 @@ import {
   getEmailById,
 } from './model/client/clientEmails.js'
 
-import './view.js'
+import './view-sign-up.js'
+import './view-sign-in.js'
+import './view-compose.js'
+import './view-all_email.js'
+import './view-address.js'
+import { renderSignUpPage } from './view-sign-up.js'
+import { renderSignInPage } from './view-sign-in.js'
+import { renderEmailsList, renderSendPage } from './view-compose.js'
+import { renderEmailsList, renderelEmailsListAddress } from './view-address.js'
 import {
-  // renderMainPage,
   renderEmailsList,
-  // renderSignUpPage,
-  // renderSignInPage,
-  renderSendPage,
   renderEmailsListEmailSheet,
-  // renderelEmailsListCreateEmailToSend,
-  renderelEmailsListAddress,
-} from './view.js'
+} from './view-all_email.js'
+
+// import {
+//   // renderCurrentAccount,
+//   // renderEmailsList,
+//   // renderSignUpPage,
+//   // renderSignInPage,
+//   // renderSendPage,
+//   // renderEmailsListEmailSheet,
+//   // renderelEmailsListCreateEmailToSend,
+//   // renderelEmailsListAddress,
+// } from './view.js'
 
 function handleClientRegister(email, passwd, firstName, lastName) {
   const isOk = clientRegister(email, passwd, firstName, lastName)
   if (isOk) {
-    window.location.href = '/html/sign_in.html'
-    // renderSignUpPage()
+    renderSignUpPage()
   }
 }
 
-function handleClientLogin(email, passwd) {
-  const isOk = clientLogin(email, passwd)
+function handleClientAuthenticate(email, passwd) {
+  const isOk = clientAuthenticate(email, passwd)
   if (isOk) {
-    // renderSignInPage()
-    // renderMainPage(clientAccount)
-    window.location.href = '/html/all_email.html'
-    renderEmailsList(clientInbox)
+    console.log(clientAccount.current.email)
+  }
+}
+function handleLoadPageLogin() {
+  const isAuthorized = clientAuthorize()
+  if (isAuthorized) {
+    renderSignInPage()
+    // renderCurrentAccount(clientAccount.current.email)
+  }
+}
+
+function handleLoadPageCompose() {
+  const isAuthorized = clientAuthorize()
+  if (!isAuthorized) {
+    console.log('вы не вошли в систему')
+  }
+}
+function handleLoadPageAddress() {
+  const isAuthorized = clientAuthorize()
+  if (isAuthorized) {
+    renderelEmailsListAddress(addresses)
   }
 }
 function handleClientReceiveIncoming() {
@@ -59,20 +89,15 @@ function handleEmailSheet(id) {
   const email = getEmailById(id, clientInbox)
   renderEmailsListEmailSheet(email)
 }
-// function handleClientCreateEmail() {
-//   renderelEmailsListCreateEmailToSend(clientAccount)
-// }
-function handleAddress() {
-  window.location.href = './address.html'
-  renderelEmailsListAddress(addresses)
-}
+
 export {
   handleClientRegister,
-  handleClientLogin,
+  handleClientAuthenticate,
+  handleLoadPageLogin,
+  handleLoadPageCompose,
+  handleLoadPageAddress,
   handleClientReceiveIncoming,
   handleClientReceiveOutcoming,
   handleClientSend,
   handleEmailSheet,
-  // handleClientCreateEmail,
-  handleAddress,
 }

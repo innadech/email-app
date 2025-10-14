@@ -1,6 +1,7 @@
 // сервер не трогаем без клиента.
 // console.log(serverAccounts) // недоступен! и это хорошо!
 
+import { saveSessionId } from '../server/localStorage.js'
 import {
   registerAccount,
   authenticate,
@@ -8,6 +9,33 @@ import {
 } from '../server/serverAccounts.js'
 
 const clientAccount = { current: null }
+
+function clientRegister(email, passwd, firstName, lastName) {
+  const signUp = registerAccount(email, passwd, firstName, lastName)
+  if (signUp) {
+    console.log('регистрация удалась!')
+    return true
+  } else {
+    return false
+  }
+}
+function clientAuthenticate(email, passwd) {
+  const isauthenticated = authenticate(email, passwd)
+  if (isauthenticated) {
+    console.log(' прошли успешно authenticate')
+    saveSessionId(isauthenticated)
+  } else {
+    console.log('не прошли успешно authenticate')
+  }
+}
+function clientAuthorize() {
+  const isAuthorized = authorize()
+  if (isAuthorized) {
+    clientAccount.current = isAuthorized
+    console.log('Вход успешный!', clientAccount.current.email)
+  }
+}
+export { clientAccount, clientAuthenticate, clientAuthorize, clientRegister }
 
 // function clientLogin(email, passwd) {
 //   logout()
@@ -22,34 +50,26 @@ const clientAccount = { current: null }
 //   }
 // }
 
-function clientLogin(email, passwd) {
-  logout()
-  const isauthenticated = authenticate(email, passwd)
-  if (!isauthenticated) {
-    console.log('не прошла успешно authenticate')
-  }
-  if (isauthenticated) {
-    const isAuthorized = authorize()
-    console.log('авторизация прошла')
-    return true
-    if (!isAuthorized) {
-      console.log('авторизация не прошла')
-    }
-  }
-}
+// authenticate(username, password) {
+//     const account = accounts.find(
+//       a => a.username === username && a.password === password
+//     )
+//     if (account) {
+//       return this.startSession(account.username)
+//     } else {
+//       return false
+//     }
+//   },
 
-function logout() {
-  clientAccount.current = null
-}
+//   authorize(sesssionId) {
+//     const username = sessions[sesssionId]
+//     const account = accounts.find(account => account.username === username)
+//     if (account) {
+//       return { username: account.username }
+//     }
+//     return false
+//   },
 
-function clientRegister(email, passwd, firstName, lastName) {
-  const signUp = registerAccount(email, passwd, firstName, lastName)
-  if (signUp) {
-    console.log('регистрация удалась!')
-    return true
-  } else {
-    return false
-  }
-}
-
-export { clientAccount, clientLogin, clientRegister }
+// function logout() {
+//   clientAccount.current = null
+// }

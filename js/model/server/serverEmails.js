@@ -1,6 +1,7 @@
 import makeId from '../shared/makeId.js'
+import { saveEmails, restoreEmails } from './localStorage.js'
 
-const serverEmails = []
+const serverEmails = restoreEmails()
 
 function createEmail(sender, recipient, subject, text) {
   return {
@@ -20,6 +21,7 @@ function sendEmail(sender, recipient, subject, text) {
   // проверить что аккаунт получателя создан
   // проверить письмо на уникальность
   serverEmails.push(email)
+  saveEmails(serverEmails)
   return true // false // может лучше отправлять статус
 }
 

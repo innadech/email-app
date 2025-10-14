@@ -12,7 +12,7 @@
     />
   </head>
   <body data-bs-theme="dark">
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
         <a class="navbar-brand" href="/html/sign_up.html">Sign up</a>
         <button
@@ -35,7 +35,23 @@
               <a class="nav-link" href="/html/sign_in.html">Sign in</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" aria-disabled="true">Log out</a>
+              <a class="nav-link" href="/html/address.html" id="elAddress"
+                >Address</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./compose.html">Compose</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link disabled"
+                aria-disabled="true"
+                id="elCurrentAccount"
+                >inna_d@meta.ua</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/html/sign_up.html">Log out</a>
             </li>
           </ul>
           <form class="d-flex" role="search">
@@ -55,7 +71,7 @@
     <div
       class="container-fluid mt-3 bg-light-subtle border border-primary-subtle rounded-3"
     >
-      <div
+      <!-- <div
         style="height: 50px"
         class="container-fluid mt-3 bg-light-subtle border border-primary-subtle rounded-3"
       >
@@ -65,7 +81,7 @@
           <div class="col">inna_d@meta.ua</div>
           <div class="col"><a href="./sign_up.html">Log out</a></div>
         </div>
-      </div>
+      </div> -->
       <div
         style="height: 600px"
         class="container-fluid mt-3 bg-light-subtle border border-primary-subtle rounded-3"
@@ -78,31 +94,41 @@
             <div class="p-2 fs-5">
               <span class="material-symbols-outlined"> star </span>Starred
             </div> -->
-             <div id="elIncomeButton" onclick="onClickButtonIncome()" class="p-2 fs-5">Inbox</div>
-            <div id="elOutcomeButton" onclick="onClickButtonOutcome()" class="p-2 fs-5">Outbox</div>
+            <div
+              id="elIncomeButton"
+              onclick="onClickButtonIncome()"
+              class="p-2 fs-5"
+            >
+              Inbox
+            </div>
+            <div
+              id="elOutcomeButton"
+              onclick="onClickButtonOutcome()"
+              class="p-2 fs-5"
+            >
+              Outbox
+            </div>
             <!-- <div class="p-2 fs-5">Drafts</div>
             <div class="p-2 fs-5">Spam</div>
             <div class="p-2 fs-5">Trash</div> -->
           </div>
           <div class="col-sm-9 p-2">
             <div style="width: 70%; height: 50px">
-                <div class="input-group mb-3">
-                    <span
-                      class="input-group-text"
-                      id="inputGroup-sizing-default"
-                      >Search mail</span
-                    >
-                    <input
-                      type="text"
-                      class="form-control"
-                      aria-label="Sizing example input"
-                      aria-describedby="inputGroup-sizing-default"
-                    />
-                  </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default"
+                  >Search mail</span
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default"
+                />
+              </div>
             </div>
             <div
               id="elEmailsList"
-              style="height: 500px "
+              style="height: 500px"
               class="container p-4 bg-light-subtle border border-primary-subtle rounded-3"
             >
               <div style="width: 50%; height: 100px">
@@ -111,8 +137,8 @@
                 </div>
                 <div>
                   <span>From:</span>
-                   <span>< alex@foo.com > </alex></span>
-                   <span>Alex Alex</span>
+                  <span></span>
+                  <span>Alex Alex</span>
                 </div>
               </div>
               <div style="width: 100%; height: 300px">
@@ -122,10 +148,18 @@
                 <div class="container overflow-hidden text-center">
                   <div class="row gx-5">
                     <div class="col">
-                      <div class="p-2 bg-light-subtle border border-primary-subtle rounded-3">Answer</div>
+                      <div
+                        class="p-2 bg-light-subtle border border-primary-subtle rounded-3"
+                      >
+                        Answer
+                      </div>
                     </div>
                     <div class="col">
-                      <div class="p-2 bg-light-subtle border border-primary-subtle rounded-3">Forward</div>
+                      <div
+                        class="p-2 bg-light-subtle border border-primary-subtle rounded-3"
+                      >
+                        Forward
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -135,10 +169,6 @@
         </div>
       </div>
     </div>
-
-
-
-  
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"

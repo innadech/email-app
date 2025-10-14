@@ -40,14 +40,26 @@ function registerAccount(email, passwd, firstName, lastName) {
 }
 let sessions = restoreSessions()
 
+// function authenticate(email, passwd) {
+//   const account = serverAccounts.find(
+//     a => a.email === email && a.passwd === passwd
+//   )
+//   if (account) {
+//     saveSessions(sessions)
+//     saveSessionId(startSession(account.email))
+//     return true
+//   } else {
+//     return false
+//   }
+// }
 function authenticate(email, passwd) {
   const account = serverAccounts.find(
     a => a.email === email && a.passwd === passwd
   )
   if (account) {
     saveSessions(sessions)
-    saveSessionId(startSession(account.email))
-    return true
+    // saveSessionId(startSession(account.email))
+    return startSession(account.email)
   } else {
     return false
   }
@@ -56,7 +68,7 @@ function authorize() {
   const email = sessions[restoreSessionId()]
   const account = serverAccounts.find(account => account.email === email)
   if (account) {
-    return { username: account.email }
+    return { email: account.email }
   }
   return false
 }
@@ -65,13 +77,5 @@ function startSession(email) {
   sessions[sessionId] = email
   return sessionId
 }
-
-// function loginAccount(email, passwd) {
-//   const account = serverAccounts.find(
-//     a => a.email === email && a.passwd === passwd
-//   )
-
-//   return account
-// }
 
 export { registerAccount, authenticate, authorize }
