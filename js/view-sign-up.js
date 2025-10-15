@@ -1,4 +1,4 @@
-import { handleClientRegister } from './controller.js'
+import { handleClientRegister } from './controller-sign-up.js'
 
 elRegisterButton.onclick = onClickButtonRegister
 
@@ -19,4 +19,10 @@ function renderSignUpPage() {
   elH.textContent = 'SignUp successful'
   elSignUpPage.appendChild(elH)
 }
-export { renderSignUpPage }
+function renderNotOk() {
+  elSignUpPage.textContent = ''
+  const elH = document.createElement('h2')
+  elH.textContent = 'Account already exists'
+  elSignUpPage.appendChild(elH)
+}
+export { renderSignUpPage, renderNotOk }

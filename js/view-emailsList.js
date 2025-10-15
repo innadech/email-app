@@ -1,35 +1,45 @@
-import { handleLoadPageAddress } from './controller.js'
+import {
+  handleClientReceiveIncoming,
+  handleClientReceiveOutcoming,
+} from './controller.js'
 
-window.onload = onLoadPageAddress
+elIncomeButton.onclick = onClickButtonIncome
+elOutcomeButton.onclick = onClickButtonOutcome
 
-function onLoadPageAddress() {
-  handleLoadPageAddress()
+function onClickButtonIncome() {
+  handleClientReceiveIncoming()
+}
+function onClickButtonOutcome() {
+  handleClientReceiveOutcoming()
 }
 
-function renderelEmailsListAddress(emails) {
+function renderEmailsList(emails) {
   elEmailsList.innerHTML = ''
   for (const email of emails) {
-    const elGenerateAddress = generateAddress(email)
-    elEmailsList.appendChild(elGenerateAddress)
+    const elGenerateEmail = generateEmail(email)
+    elEmailsList.appendChild(elGenerateEmail)
   }
 }
 
-function generateAddress(email) {
+function generateEmail(email) {
   const elDivContainerWrap = document.createElement('div')
   const elDivContainer = document.createElement('div')
   const elDivRow = document.createElement('div')
   const elDivCol = document.createElement('div')
   const elDivColSecond = document.createElement('div')
-  // const elDivColThird = document.createElement('div')
+  const elDivColThird = document.createElement('div')
   const elDivFormCheck = document.createElement('div')
   const elDivFormCheckInput = document.createElement('input')
   const elDivFormCheckLabel = document.createElement('label')
+
+  elDivContainerWrap.onclick = onClickElDivContainerWrapEmail
 
   elDivContainerWrap.classList.add('shadow-none')
   elDivContainerWrap.classList.add('p-2')
   elDivContainerWrap.classList.add('mb-1')
   elDivContainerWrap.classList.add('rounded')
   elDivContainerWrap.classList.add('bg-body-tertiary')
+  elDivContainerWrap.setAttribute('id', email.id)
 
   elDivContainer.classList.add('container')
   elDivContainer.classList.add('text-center')
@@ -39,7 +49,7 @@ function generateAddress(email) {
 
   elDivCol.classList.add('col')
   elDivColSecond.classList.add('col')
-  // elDivColThird.classList.add('col')
+  elDivColThird.classList.add('col')
 
   elDivFormCheck.classList.add('form-check')
   elDivFormCheckInput.classList.add('form-check-input')
@@ -48,21 +58,18 @@ function generateAddress(email) {
   elDivFormCheckLabel.classList.add('form-check-label')
   // elDivFormCheckLabel.setAttribute('for', 'checkDefault')
 
-  elDivColSecond.textContent = email.email
-  elDivFormCheckLabel.textContent = email.id
-
-  // elDivColThird.textContent = email.date
-
+  elDivColSecond.textContent = email.subject
+  elDivColThird.textContent = email.date
+  elDivFormCheckLabel.textContent = email.recipient
   elDivContainerWrap.appendChild(elDivContainer)
   elDivContainer.appendChild(elDivRow)
   elDivRow.appendChild(elDivCol)
   elDivRow.appendChild(elDivColSecond)
-  // elDivRow.appendChild(elDivColThird)
+  elDivRow.appendChild(elDivColThird)
   elDivCol.appendChild(elDivFormCheck)
   elDivFormCheck.appendChild(elDivFormCheckInput)
   elDivFormCheck.appendChild(elDivFormCheckLabel)
 
   return elDivContainerWrap
 }
-
-export { renderelEmailsListAddress }
+export { renderEmailsList }

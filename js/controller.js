@@ -1,7 +1,8 @@
+console.log('controller.js')
 import {
   clientAuthenticate,
   clientAuthorize,
-  clientRegister,
+  // clientRegister,
   clientAccount,
 } from './model/client/clientAccount.js'
 
@@ -15,19 +16,12 @@ import {
   getEmailById,
 } from './model/client/clientEmails.js'
 
-import './view-sign-up.js'
-import './view-sign-in.js'
-import './view-compose.js'
-import './view-all_email.js'
-import './view-address.js'
-import { renderSignUpPage } from './view-sign-up.js'
+// import { renderSignUpPage } from './view-sign-up.js'
 import { renderSignInPage } from './view-sign-in.js'
-import { renderEmailsList, renderSendPage } from './view-compose.js'
-import { renderEmailsList, renderelEmailsListAddress } from './view-address.js'
-import {
-  renderEmailsList,
-  renderEmailsListEmailSheet,
-} from './view-all_email.js'
+import { renderSendPage } from './view-compose.js'
+import { renderelEmailsListAddress } from './view-address.js'
+import { renderEmailsListEmailSheet } from './view-all_email.js'
+import { renderEmailsList } from './view-emailsList.js'
 
 // import {
 //   // renderCurrentAccount,
@@ -40,12 +34,12 @@ import {
 //   // renderelEmailsListAddress,
 // } from './view.js'
 
-function handleClientRegister(email, passwd, firstName, lastName) {
-  const isOk = clientRegister(email, passwd, firstName, lastName)
-  if (isOk) {
-    renderSignUpPage()
-  }
-}
+// function handleClientRegister(email, passwd, firstName, lastName) {
+//   const isOk = clientRegister(email, passwd, firstName, lastName)
+//   if (isOk) {
+//     renderSignUpPage()
+//   }
+// }
 
 function handleClientAuthenticate(email, passwd) {
   const isOk = clientAuthenticate(email, passwd)
@@ -91,7 +85,7 @@ function handleEmailSheet(id) {
 }
 
 export {
-  handleClientRegister,
+  // handleClientRegister,
   handleClientAuthenticate,
   handleLoadPageLogin,
   handleLoadPageCompose,
