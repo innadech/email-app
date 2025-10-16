@@ -26,18 +26,18 @@ function clientAuthenticate(email, passwd) {
     saveSessionId(isauthenticated)
     return true
   } else {
-    false
     console.log('не прошли успешно authenticate')
+    return false
   }
 }
 function clientAuthorize() {
   const isAuthorized = authorize()
   if (isAuthorized) {
     clientAccount.current = isAuthorized
-    return true
     console.log('Вход успешный!', clientAccount.current.email)
+    return true
   } else {
-    false
+    return false
   }
 }
 export { clientAccount, clientAuthenticate, clientAuthorize, clientRegister }

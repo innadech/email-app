@@ -5,7 +5,7 @@ import {
 
 elLoginButton.onclick = onClickButtonLogin
 
-window.onload = onLoadLogin
+window.onload = onLoadLogin // onLoadPageSignIn
 
 function onClickButtonLogin() {
   console.log('hello')
@@ -17,9 +17,7 @@ function onLoadLogin() {
   handleLoadPageLogin()
 }
 
-function renderCurrentAccount(newCurrentAccount) {
-  elCurrentAccount.textContent = newCurrentAccount
-}
+// renderContainerSignIn
 function renderSignInPage() {
   elSignInPage.textContent = ''
   const elH = document.createElement('h1')
@@ -33,4 +31,4 @@ function renderSignInPageOnline() {
   elSignInPage.appendChild(elH)
 }
 
-export { renderSignInPage, renderSignInPageOnline, renderCurrentAccount }
+export { renderSignInPage, renderSignInPageOnline }

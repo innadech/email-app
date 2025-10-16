@@ -13,8 +13,9 @@ function onClickButtonRegister() {
     console.log(email)
   }
 }
+// renderDivSignUp(text) // 'SignUp successful' | 'Account already exists'
 function renderSignUpPage() {
-  elSignUpPage.textContent = ''
+  elSignUpPage.textContent = '' // .innerHTML = ''
   const elH = document.createElement('h2')
   elH.textContent = 'SignUp successful'
   elSignUpPage.appendChild(elH)

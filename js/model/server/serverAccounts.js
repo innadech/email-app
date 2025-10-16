@@ -16,7 +16,7 @@ function createAccount(email, passwd, firstName, lastName) {
   return {
     id: makeId(),
     date: Date.now(),
-    email: email,
+    email: email, // address
     passwd: passwd,
     firstName: firstName,
     lastName: lastName,

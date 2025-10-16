@@ -1,20 +1,16 @@
-// import { clientAccount } from './model/client/clientAccount.js'
-
-import { clientAuthorize } from './model/client/clientAccount.js'
+import { clientAccount, clientAuthorize } from './model/client/clientAccount.js'
 import { clientSend } from './model/client/clientEmails.js'
-import {
-  renderSendPage,
-  redirectToCompose,
-  renderPageCompose,
-} from './view-compose.js'
+import { renderSendPage, renderPageCompose } from './view-compose.js'
+import { renderCurrentAccount } from './view-navbar.js'
 
 function handleLoadPageCompose() {
   const isAuthorized = clientAuthorize()
   if (isAuthorized) {
-    redirectToCompose()
-    console.log('вы не вошли в систему')
+    renderCurrentAccount(clientAccount.current.email)
   } else {
-    renderPageCompose()
+    // renderContainerCompose('Please login in')
+    renderPageCompose('Please login in')
+    console.log('вы не вошли в систему')
   }
 }
 function handleClientSend(recipient, subject, text) {

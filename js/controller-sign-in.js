@@ -4,18 +4,15 @@ import {
   clientAuthorize,
   clientAccount,
 } from './model/client/clientAccount.js'
-import {
-  renderSignInPage,
-  renderSignInPageOnline,
-  renderCurrentAccount,
-} from './view-sign-in.js'
+import { renderCurrentAccount } from './view-navbar.js'
+import { renderSignInPage, renderSignInPageOnline } from './view-sign-in.js'
 
 function handleClientAuthenticate(email, passwd) {
   const isOk = clientAuthenticate(email, passwd)
   if (isOk) {
     console.log('gut')
     renderSignInPage()
-
+    handleLoadPageLogin()
     console.log(clientAccount.current.email)
   }
 }
