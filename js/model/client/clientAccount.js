@@ -24,6 +24,7 @@ function clientAuthenticate(email, passwd) {
   if (isauthenticated) {
     console.log(' прошли успешно authenticate')
     saveSessionId(isauthenticated)
+    return true
   } else {
     console.log('не прошли успешно authenticate')
   }
@@ -32,6 +33,7 @@ function clientAuthorize() {
   const isAuthorized = authorize()
   if (isAuthorized) {
     clientAccount.current = isAuthorized
+    return true
     console.log('Вход успешный!', clientAccount.current.email)
   }
 }

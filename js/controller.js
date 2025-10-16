@@ -17,7 +17,7 @@ import {
 } from './model/client/clientEmails.js'
 
 // import { renderSignUpPage } from './view-sign-up.js'
-import { renderSignInPage } from './view-sign-in.js'
+// import { renderSignInPage } from './view-sign-in.js'
 import { renderSendPage } from './view-compose.js'
 import { renderelEmailsListAddress } from './view-address.js'
 import { renderEmailsListEmailSheet } from './view-all_email.js'
@@ -41,19 +41,19 @@ import { renderEmailsList } from './view-emailsList.js'
 //   }
 // }
 
-function handleClientAuthenticate(email, passwd) {
-  const isOk = clientAuthenticate(email, passwd)
-  if (isOk) {
-    console.log(clientAccount.current.email)
-  }
-}
-function handleLoadPageLogin() {
-  const isAuthorized = clientAuthorize()
-  if (isAuthorized) {
-    renderSignInPage()
-    // renderCurrentAccount(clientAccount.current.email)
-  }
-}
+// function handleClientAuthenticate(email, passwd) {
+//   const isOk = clientAuthenticate(email, passwd)
+//   if (isOk) {
+//     console.log(clientAccount.current.email)
+//   }
+// }
+// function handleLoadPageLogin() {
+//   const isAuthorized = clientAuthorize()
+//   if (isAuthorized) {
+//     renderSignInPage()
+//     // renderCurrentAccount(clientAccount.current.email)
+//   }
+// }
 
 function handleLoadPageCompose() {
   const isAuthorized = clientAuthorize()
@@ -86,8 +86,8 @@ function handleEmailSheet(id) {
 
 export {
   // handleClientRegister,
-  handleClientAuthenticate,
-  handleLoadPageLogin,
+  // handleClientAuthenticate,
+  // handleLoadPageLogin,
   handleLoadPageCompose,
   handleLoadPageAddress,
   handleClientReceiveIncoming,

@@ -57,17 +57,31 @@ function authenticate(email, passwd) {
     a => a.email === email && a.passwd === passwd
   )
   if (account) {
+    const sessionId = startSession(account.email)
     saveSessions(sessions)
-    // saveSessionId(startSession(account.email))
-    return startSession(account.email)
+    saveSessionId(sessionId)
+    return sessionId
   } else {
     return false
   }
 }
+// function authenticate(email, passwd) {
+//   const account = serverAccounts.find(
+//     a => a.email === email && a.passwd === passwd
+//   )
+//   if (account) {
+//     saveSessions(sessions)
+//     // saveSessionId(startSession(account.email))
+//     return startSession(account.email)
+//   } else {
+//     return false
+//   }
+// }
 function authorize() {
   const email = sessions[restoreSessionId()]
   const account = serverAccounts.find(account => account.email === email)
   if (account) {
+    console.log('super')
     return { email: account.email }
   }
   return false
