@@ -1,7 +1,7 @@
 import {
   handleClientReceiveIncoming,
   handleClientReceiveOutcoming,
-} from './controller.js'
+} from './controller-emailsList.js'
 
 elIncomeButton.onclick = onClickButtonIncome
 elOutcomeButton.onclick = onClickButtonOutcome

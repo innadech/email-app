@@ -1,4 +1,12 @@
-import { handleEmailSheet } from './controller.js'
+import {
+  handleEmailSheet,
+  handleLoadPageAllEmail,
+} from './controller-all_email.js'
+
+window.onload = onLoadPageAllEmail
+function onLoadPageAllEmail() {
+  handleLoadPageAllEmail()
+}
 
 function onClickElDivContainerWrapEmail(e) {
   console.log(e.target.tagName)
