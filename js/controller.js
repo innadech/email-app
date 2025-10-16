@@ -10,7 +10,7 @@ import {
   addresses,
   clientReceiveIncoming,
   clientReceiveOutcoming,
-  clientSend,
+  // clientSend,
   clientInbox,
   clientOutbox,
   getEmailById,
@@ -18,7 +18,7 @@ import {
 
 // import { renderSignUpPage } from './view-sign-up.js'
 // import { renderSignInPage } from './view-sign-in.js'
-import { renderSendPage } from './view-compose.js'
+// import { renderSendPage } from './view-compose.js'
 import { renderelEmailsListAddress } from './view-address.js'
 import { renderEmailsListEmailSheet } from './view-all_email.js'
 import { renderEmailsList } from './view-emailsList.js'
@@ -55,12 +55,12 @@ import { renderEmailsList } from './view-emailsList.js'
 //   }
 // }
 
-function handleLoadPageCompose() {
-  const isAuthorized = clientAuthorize()
-  if (!isAuthorized) {
-    console.log('вы не вошли в систему')
-  }
-}
+// function handleLoadPageCompose() {
+//   const isAuthorized = clientAuthorize()
+//   if (!isAuthorized) {
+//     console.log('вы не вошли в систему')
+//   }
+// }
 function handleLoadPageAddress() {
   const isAuthorized = clientAuthorize()
   if (isAuthorized) {
@@ -75,10 +75,10 @@ function handleClientReceiveOutcoming() {
   clientReceiveOutcoming()
   renderEmailsList(clientOutbox)
 }
-function handleClientSend(recipient, subject, text) {
-  clientSend(recipient, subject, text)
-  renderSendPage()
-}
+// function handleClientSend(recipient, subject, text) {
+//   clientSend(recipient, subject, text)
+//   renderSendPage()
+// }
 function handleEmailSheet(id) {
   const email = getEmailById(id, clientInbox)
   renderEmailsListEmailSheet(email)
@@ -88,10 +88,10 @@ export {
   // handleClientRegister,
   // handleClientAuthenticate,
   // handleLoadPageLogin,
-  handleLoadPageCompose,
+  // handleLoadPageCompose,
   handleLoadPageAddress,
   handleClientReceiveIncoming,
   handleClientReceiveOutcoming,
-  handleClientSend,
+  // handleClientSend,
   handleEmailSheet,
 }
