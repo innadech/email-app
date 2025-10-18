@@ -5,7 +5,12 @@ window.onload = onLoadPageAddress
 function onLoadPageAddress() {
   handleLoadPageAddress()
 }
-
+function renderContainerAddress() {
+  elContainerAddress.textContent = ''
+  const elH = document.createElement('h2')
+  elH.textContent = 'Please login in'
+  elContainerAddress.appendChild(elH)
+}
 function renderelEmailsListAddress(emails) {
   elEmailsList.innerHTML = ''
   for (const email of emails) {
@@ -65,4 +70,4 @@ function generateAddress(email) {
   return elDivContainerWrap
 }
 
-export { renderelEmailsListAddress }
+export { renderelEmailsListAddress, renderContainerAddress }

@@ -4,6 +4,7 @@ import {
 } from './controller-all_email.js'
 
 window.onload = onLoadPageAllEmail
+
 function onLoadPageAllEmail() {
   handleLoadPageAllEmail()
 }

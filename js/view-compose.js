@@ -17,24 +17,18 @@ function onClickButtonSend() {
   handleClientSend(recipient, subject, text)
 }
 
-// function redirectToCompose() {
-//   window.location.href = './compose.html'
-// }
-
-// renderContainerCompose(text)
-function renderSendPage() {
-  elSend.textContent = ''
+function renderComposeBox() {
+  elComposeBox.textContent = ''
   const elH = document.createElement('h2')
   elH.textContent = 'Email is sent successful'
-  elSendPage.appendChild(elH)
+  elComposeBox.appendChild(elH)
 }
-function renderPageCompose() {
-  elComposePage.textContent = ''
+function renderContainerCompose() {
+  elContainerCompose.textContent = ''
   const elH = document.createElement('h2')
   elH.textContent = 'Please login in'
-  elComposePage.appendChild(elH)
+  elContainerCompose.appendChild(elH)
 }
-//////
 
 function generateContainerCompose() {
   return `<div
@@ -131,4 +125,4 @@ function generateContainerCompose() {
       </div>`
 }
 
-export { renderSendPage, renderPageCompose }
+export { renderComposeBox, renderContainerCompose }
