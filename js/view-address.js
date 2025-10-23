@@ -12,6 +12,7 @@ function renderContainerAddress() {
   elContainerAddress.appendChild(elH)
 }
 function renderelEmailsListAddress(emails) {
+  elEmailsList.classList.remove('d-none')
   elEmailsList.innerHTML = ''
   for (const email of emails) {
     const elGenerateAddress = generateAddress(email)

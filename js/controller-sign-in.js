@@ -6,7 +6,6 @@ import {
 } from './model/client/clientAccount.js'
 import { renderCurrentAccount, renderNavBarLogOut } from './view-navbar.js'
 import { renderSignInPage, renderSignInPageOnline } from './view-sign-in.js'
-import { renderSignUpPage } from './view-sign-up.js'
 
 function handleClientAuthenticate(email, passwd) {
   const isOk = clientAuthenticate(email, passwd)
