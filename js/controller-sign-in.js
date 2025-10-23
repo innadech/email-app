@@ -5,18 +5,16 @@ import {
   clientAccount,
 } from './model/client/clientAccount.js'
 import { renderCurrentAccount, renderNavBarLogOut } from './view-navbar.js'
-import { renderSignInPageOnline } from './view-sign-in.js'
-import { renderDivSignUp } from './view-sign-up.js'
+import { renderSignInPage, renderSignInPageOnline } from './view-sign-in.js'
+import { renderSignUpPage } from './view-sign-up.js'
 
 function handleClientAuthenticate(email, passwd) {
   const isOk = clientAuthenticate(email, passwd)
   if (isOk) {
     console.log('gut')
-    renderDivSignUp('SignUp successful')
+    renderSignInPage('SignUp successful')
     handleLoadPageLogin()
     console.log(clientAccount.current.email)
-  } else {
-    renderDivSignUp('Please fill in')
   }
 }
 function handleLoadPageLogin() {
