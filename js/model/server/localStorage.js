@@ -9,7 +9,7 @@ function restoreAccounts() {
 }
 function saveEmails(emails) {
   const stringifiedEmails = JSON.stringify(emails)
-  localStorage.setItem('emails', stringifiedAccounts)
+  localStorage.setItem('emails', stringifiedEmails)
 }
 function restoreEmails() {
   const stringifiedEmails = localStorage.getItem('emails')

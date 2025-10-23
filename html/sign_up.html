@@ -27,7 +27,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul id="elUl" id="elUl" class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
@@ -51,9 +51,9 @@
                 >inna_d@meta.ua</a
               >
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="/html/sign_up.html">Log out</a>
-            </li>
+            </li> -->
           </ul>
           <form class="d-flex" role="search">
             <input
@@ -74,71 +74,69 @@
       class="container-fluid mt-5 bg-light-subtle border border-primary-subtle rounded-3"
     >
       <!-- elSignUpContainer -->
-      <div
-        id="elSignUpPage"
-        style="width: 50%; height: 500px"
-        class="container-fluid mt-5 bg-light-subtle"
-      >
-        <p class="fs-2 text-center">Sign up</p>
-        <div class="form-floating mb-3">
-          <input
-            type="email"
-            class="form-control"
-            id="emailSignup"
-            placeholder="name@example.com"
-          />
-          <label for="floatingInput">Email address</label>
+      <form action="">
+        <div
+          id="elSignUpPage"
+          style="width: 50%; height: 500px"
+          class="container-fluid mt-5 bg-light-subtle"
+        >
+          <p class="fs-2 text-center">Sign up</p>
+          <div class="form-floating mb-3">
+            <input
+              type="email"
+              class="form-control"
+              id="emailSignup"
+              placeholder="name@example.com"
+            />
+            <label for="floatingInput">Email address</label>
+          </div>
+          <div class="form-floating">
+            <input
+              type="password"
+              class="form-control"
+              id="passwordSignup"
+              placeholder="Password"
+            />
+            <label for="floatingPassword">Password</label>
+          </div>
+          <div class="form-floating">
+            <input
+              type="password"
+              class="form-control"
+              id="repeatpasswordSignup"
+              placeholder="Password"
+            />
+            <label for="floatingPassword">Password Repeat</label>
+          </div>
+          <div class="form-floating mt-3">
+            <input
+              type="text"
+              class="form-control"
+              id="firstnameSignup"
+              placeholder="Password"
+            />
+            <label for="floatingPassword">Name</label>
+          </div>
+          <div class="form-floating">
+            <input
+              type="text"
+              class="form-control"
+              id="lastnameSignup"
+              placeholder="Password"
+            />
+            <label for="floatingPassword">Lastname</label>
+          </div>
+          <div class="text-center mt-5">
+            <button
+              type="submit"
+              class="btn btn-primary btn-lg"
+              id="elRegisterButton"
+            >
+              Sign up
+            </button>
+          </div>
         </div>
-        <div class="form-floating">
-          <input
-            type="password"
-            class="form-control"
-            id="passwordSignup"
-            placeholder="Password"
-          />
-          <label for="floatingPassword">Password</label>
-        </div>
-        <div class="form-floating">
-          <input
-            type="password"
-            class="form-control"
-            id="repeatpasswordSignup"
-            placeholder="Password"
-          />
-          <label for="floatingPassword">Password Repeat</label>
-        </div>
-        <div class="form-floating mt-3">
-          <input
-            type="text"
-            class="form-control"
-            id="firstnameSignup"
-            placeholder="Password"
-          />
-          <label for="floatingPassword">Name</label>
-        </div>
-        <div class="form-floating">
-          <input
-            type="text"
-            class="form-control"
-            id="lastnameSignup"
-            placeholder="Password"
-          />
-          <label for="floatingPassword">Lastname</label>
-        </div>
-        <div class="text-center mt-5">
-          <button
-            type="button"
-            class="btn btn-primary btn-lg"
-            id="elRegisterButton"
-          >
-            <!-- <a href="sign_in.html">Sign Up</a> -->
-            Sign up
-          </button>
-          <!-- <button type="button" class="btn btn-outline-primary text-center">
-            Sign up
-          </button> -->
-        </div>
-      </div>
+      </form>
     </div>
 
     <script

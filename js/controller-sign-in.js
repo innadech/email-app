@@ -4,16 +4,19 @@ import {
   clientAuthorize,
   clientAccount,
 } from './model/client/clientAccount.js'
-import { renderCurrentAccount } from './view-navbar.js'
-import { renderSignInPage, renderSignInPageOnline } from './view-sign-in.js'
+import { renderCurrentAccount, renderNavBarLogOut } from './view-navbar.js'
+import { renderSignInPageOnline } from './view-sign-in.js'
+import { renderDivSignUp } from './view-sign-up.js'
 
 function handleClientAuthenticate(email, passwd) {
   const isOk = clientAuthenticate(email, passwd)
   if (isOk) {
     console.log('gut')
-    renderSignInPage()
+    renderDivSignUp('SignUp successful')
     handleLoadPageLogin()
     console.log(clientAccount.current.email)
+  } else {
+    renderDivSignUp('Please fill in')
   }
 }
 function handleLoadPageLogin() {
@@ -21,7 +24,9 @@ function handleLoadPageLogin() {
   if (isAuthorized) {
     console.log('ok authorized')
     renderSignInPageOnline()
+    renderNavBarLogOut()
     renderCurrentAccount(clientAccount.current.email)
   }
 }
+
 export { handleClientAuthenticate, handleLoadPageLogin }

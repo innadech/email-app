@@ -11,10 +11,14 @@ function onLoadPageCompose() {
 }
 
 function onClickButtonSend() {
-  let recipient = document.querySelector('#elRecipient').value
-  let subject = document.querySelector('#elSubject').value
-  let text = document.querySelector('#elText').value
-  handleClientSend(recipient, subject, text)
+  let recipient = document.querySelector('#elRecipient')
+  let subject = document.querySelector('#elSubject')
+  let text = document.querySelector('#elText')
+  handleClientSend(recipient.vale, subject.value, text.value)
+}
+function renderComposeAccountEmail(email) {
+  elAccountEmail.textContent = ''
+  elAccountEmail.textContent = email
 }
 
 function renderComposeBox() {
@@ -125,4 +129,4 @@ function generateContainerCompose() {
       </div>`
 }
 
-export { renderComposeBox, renderContainerCompose }
+export { renderComposeBox, renderContainerCompose, renderComposeAccountEmail }

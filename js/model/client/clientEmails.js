@@ -66,31 +66,6 @@ let addresses = Array.from(
   ]).values()
 )
 
-// const addresses = Array.from(
-//   new Map(
-//     [...clientInbox, ...clientOutbox].map(item => [item.email, { id: item.id, email: item.email }])
-//   ).values()
-// )
-// Объяснение:
-// •  [...clientInbox, ...clientOutbox  ] объединяет оба массива в один.
-// outgoing идёт первым, чтобы его id перезаписывал incoming
-// •  .map(item => [item.email, { id: item.id, email: item.email }]) создаёт массив пар [email, { id, email }].
-// •  new Map() использует email как ключ, сохраняя только последнее вхождение для каждого email (удаляя дубликаты).
-// •  Array.from(...values()) преобразует значения Map в массив объектов { id, email }.
-
-// const addresses = [
-//   ...new Set([
-//     ...clientInbox.map(email => email.recipient),
-//     ...clientOutbox.map(email => email.sender),
-//   ]),
-// ]
-// Объяснение:
-// •  incoming.map(item => item.email) извлекает email из каждого объекта в clientInbox.
-// •  Аналогично для clientOutbox.
-// •  ... (spread) объединяет два массива в один.
-// •  new Set() создаёт коллекцию уникальных значений, удаляя дубликаты.
-// •  ...new Set() преобразует Set обратно в массив.
-
 export {
   addresses,
   clientInbox,
