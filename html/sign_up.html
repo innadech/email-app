@@ -29,7 +29,15 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul id="elUl" id="elUl" class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link" href="/html/sign_up.html">Sign in</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="/html/sign_up.html"
+                >Home</a
+              >
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/html/sign_in.html">Sign in</a>
@@ -70,13 +78,13 @@
       </div>
     </nav>
     <div
+      id="elSignUpPage"
       style="width: 70%; height: 600px"
       class="container-fluid mt-5 bg-light-subtle border border-primary-subtle rounded-3"
     >
       <!-- elSignUpContainer -->
       <form id="elFormSignUp">
         <div
-          id="elSignUpPage"
           style="width: 50%; height: 500px"
           class="container-fluid mt-5 bg-light-subtle"
         >
@@ -86,6 +94,7 @@
               type="email"
               class="form-control"
               id="emailSignup"
+              name="email"
               placeholder="name@example.com"
             />
             <label for="floatingInput">Email address</label>
@@ -95,6 +104,7 @@
               type="password"
               class="form-control"
               id="passwordSignup"
+              name="password"
               placeholder="Password"
             />
             <label for="floatingPassword">Password</label>
@@ -104,6 +114,7 @@
               type="password"
               class="form-control"
               id="repeatpasswordSignup"
+              name="repeatpassword"
               placeholder="Password"
             />
             <label for="floatingPassword">Password Repeat</label>
@@ -113,6 +124,7 @@
               type="text"
               class="form-control"
               id="firstnameSignup"
+              name="firstname"
               placeholder="Password"
             />
             <label for="floatingPassword">Name</label>
@@ -122,6 +134,7 @@
               type="text"
               class="form-control"
               id="lastnameSignup"
+              name="lastname"
               placeholder="Password"
             />
             <label for="floatingPassword">Lastname</label>
@@ -134,7 +147,6 @@
             >
               Sign up
             </button>
-            <button type="submit">asd</button>
           </div>
         </div>
       </form>

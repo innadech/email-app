@@ -12,27 +12,62 @@ import {
 
 const serverAccounts = restoreAccounts()
 
-function createAccount(email, passwd, firstName, lastName) {
+// function createAccount(email, passwd, firstName, lastName) {
+//   return {
+//     id: makeId(),
+//     date: Date.now(),
+//     email: email, // address
+//     passwd: passwd,
+//     firstName: firstName,
+//     lastName: lastName,
+//     // isLoggedIn: false,
+//   }
+// }
+
+// function registerAccount(email, passwd, firstName, lastName) {
+//   const account = createAccount(email, passwd, firstName, lastName)
+//   const findedAccount = serverAccounts.find(a => a.email === email )
+//   if (findedAccount) {
+//     return false
+//   } else {
+//     serverAccounts.push(account)
+//     saveAccounts(serverAccounts)
+//     console.log(serverAccounts)
+//     return true
+//   }
+
+//   // return true/false
+// }
+function createAccount(account) {
   return {
     id: makeId(),
     date: Date.now(),
-    email: email, // address
-    passwd: passwd,
-    firstName: firstName,
-    lastName: lastName,
+    email: account.email, // address
+    password: account.password,
+    repeatpassword: account.repeatpassword,
+    firstName: account.firstName,
+    lastName: account.lastName,
     // isLoggedIn: false,
   }
 }
 
-function registerAccount(email, passwd, firstName, lastName) {
-  const account = createAccount(email, passwd, firstName, lastName)
-  const findedAccount = serverAccounts.find(a => a.email === email)
+function registerAccount(account) {
+  // if (!account.email || account.email.trim() === '') {
+  //   return false
+  // }
+  // if (account.password !== account.repeatpassword) {
+  //   return false
+  // }
+  const newAccount = createAccount(account)
+  console.log(newAccount)
+  const findedAccount = serverAccounts.find(a => a.email === account.email)
   if (findedAccount) {
     return false
   } else {
-    serverAccounts.push(account)
+    serverAccounts.push(newAccount)
     saveAccounts(serverAccounts)
     console.log(serverAccounts)
+    console.log(newAccount)
     return true
   }
 
@@ -52,14 +87,15 @@ let sessions = restoreSessions()
 //     return false
 //   }
 // }
-function authenticate(email, passwd) {
+function authenticate(email, password) {
   const account = serverAccounts.find(
-    a => a.email === email && a.passwd === passwd
+    a => a.email === email && a.password === password
   )
   if (account) {
     const sessionId = startSession(account.email)
     saveSessions(sessions)
     saveSessionId(sessionId)
+    console.log(sessionId)
     return sessionId
   } else {
     return false

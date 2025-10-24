@@ -25,7 +25,16 @@ function onClickElDivContainerWrapEmail(e) {
   handleEmailSheet(id)
 }
 
+function renderelAllEmailBox() {
+  // elAllEmailBox.classList.remove('d-none')
+  elAllEmailBox.textContent = ''
+  const elH = document.createElement('h2')
+  elH.textContent = 'Please Login'
+  elAllEmailBox.appendChild(elH)
+}
+
 function renderEmailsListEmailSheet(email) {
+  elEmailsList.classList.remove('d-none')
   elEmailsList.innerHTML = ''
   const elGenerateEmailSheet = generateEmailSheet(email)
   elEmailsList.appendChild(elGenerateEmailSheet)
@@ -114,6 +123,7 @@ function generateEmailSheet(email) {
 }
 
 function renderEmailsList(emails) {
+  elEmailsList.classList.remove('d-none')
   elEmailsList.innerHTML = ''
   for (const email of emails) {
     const elGenerateEmail = generateEmail(email)
@@ -172,4 +182,4 @@ function generateEmail(email) {
 
   return elDivContainerWrap
 }
-export { renderEmailsListEmailSheet, renderEmailsList }
+export { renderEmailsListEmailSheet, renderEmailsList, renderelAllEmailBox }

@@ -48,6 +48,16 @@ function clientReceiveOutcoming() {
     console.log('Сначала залогиньтесь!')
   }
 }
+
+// function findContactByQuery(query, emails) {
+//   const findedEmail = emails.filter(
+//     email =>
+//       email.firstName ||
+//       email.lastName.includes(query) ||
+//       email.email.includes(query)
+//   )
+//   return findedEmail
+// }
 function getEmailById(id, emails) {
   const findedEmail = emails.find(email => email.id === id)
   return findedEmail
@@ -74,4 +84,5 @@ export {
   clientReceiveIncoming,
   clientReceiveOutcoming,
   getEmailById,
+  // findContactByQuery,
 }

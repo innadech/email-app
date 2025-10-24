@@ -10,8 +10,8 @@ import {
 
 const clientAccount = { current: null }
 
-function clientRegister(email, passwd, firstName, lastName) {
-  const signUp = registerAccount(email, passwd, firstName, lastName)
+function clientRegister(account) {
+  const signUp = registerAccount(account)
   if (signUp) {
     console.log('регистрация удалась!')
     return true
@@ -19,8 +19,17 @@ function clientRegister(email, passwd, firstName, lastName) {
     return false
   }
 }
-function clientAuthenticate(email, passwd) {
-  const isauthenticated = authenticate(email, passwd)
+// function clientRegister(email, passwd, firstName, lastName) {
+//   const signUp = registerAccount(email, passwd, firstName, lastName)
+//   if (signUp) {
+//     console.log('регистрация удалась!')
+//     return true
+//   } else {
+//     return false
+//   }
+// }
+function clientAuthenticate(email, password) {
+  const isauthenticated = authenticate(email, password)
   if (isauthenticated) {
     console.log(' прошли успешно authenticate')
     saveSessionId(isauthenticated)
@@ -40,6 +49,7 @@ function clientAuthorize() {
     return false
   }
 }
+
 export { clientAccount, clientAuthenticate, clientAuthorize, clientRegister }
 
 // function clientLogin(email, passwd) {

@@ -2,6 +2,7 @@ import { clientAuthorize, clientAccount } from './model/client/clientAccount.js'
 import {
   renderEmailsListEmailSheet,
   renderEmailsList,
+  renderelAllEmailBox,
 } from './view-all_email.js'
 import {
   getEmailById,
@@ -25,6 +26,8 @@ function handleLoadPageAllEmail() {
     renderEmailsList(clientInbox)
     renderNavBarLogOut()
     console.log()
+  } else {
+    renderelAllEmailBox()
   }
 }
 function handleClientReceiveIncoming() {
