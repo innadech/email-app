@@ -51,23 +51,23 @@ function createAccount(account) {
   }
 }
 
+function checkAccount(a) {
+  const okEmail =
+    a.email && typeof a.email === 'string' && a.email.trim().length > 0
+  const okPasswd = a.email && a.password === a.repeatpassword
+  if (okEmail && okPasswd) return true
+  return false
+}
+
 function registerAccount(account) {
-  // if (!account.email || account.email.trim() === '') {
-  //   return false
-  // }
-  // if (account.password !== account.repeatpassword) {
-  //   return false
-  // }
-  const newAccount = createAccount(account)
-  console.log(newAccount)
+  if (!checkAccount(account)) return false
+  const createdAccount = createAccount(account)
   const findedAccount = serverAccounts.find(a => a.email === account.email)
   if (findedAccount) {
     return false
   } else {
-    serverAccounts.push(newAccount)
+    serverAccounts.push(createdAccount)
     saveAccounts(serverAccounts)
-    console.log(serverAccounts)
-    console.log(newAccount)
     return true
   }
 
