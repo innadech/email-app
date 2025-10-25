@@ -28,8 +28,19 @@ function clientRegister(account) {
 //     return false
 //   }
 // }
-function clientAuthenticate(email, password) {
-  const isauthenticated = authenticate(email, password)
+// function clientAuthenticate(email, password) {
+//   const isauthenticated = authenticate(email, password)
+//   if (isauthenticated) {
+//     console.log(' прошли успешно authenticate')
+//     saveSessionId(isauthenticated)
+//     return true
+//   } else {
+//     console.log('не прошли успешно authenticate')
+//     return false
+//   }
+// }
+function clientAuthenticate(account) {
+  const isauthenticated = authenticate(account)
   if (isauthenticated) {
     console.log(' прошли успешно authenticate')
     saveSessionId(isauthenticated)

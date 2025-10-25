@@ -7,8 +7,8 @@ import {
 import { renderCurrentAccount, renderNavBarLogOut } from './view-navbar.js'
 import { renderSignInPage, renderSignInPageOnline } from './view-sign-in.js'
 
-function handleClientAuthenticate(email, passwd) {
-  const isOk = clientAuthenticate(email, passwd)
+function handleClientAuthenticate(account) {
+  const isOk = clientAuthenticate(account)
   if (isOk) {
     console.log('gut')
     renderSignInPage('SignUp successful')
@@ -16,6 +16,16 @@ function handleClientAuthenticate(email, passwd) {
     console.log(clientAccount.current.email)
   }
 }
+
+// function handleClientAuthenticate(email, passwd) {
+//   const isOk = clientAuthenticate(email, passwd)
+//   if (isOk) {
+//     console.log('gut')
+//     renderSignInPage('SignUp successful')
+//     handleLoadPageLogin()
+//     console.log(clientAccount.current.email)
+//   }
+// }
 function handleLoadPageLogin() {
   const isAuthorized = clientAuthorize()
   if (isAuthorized) {

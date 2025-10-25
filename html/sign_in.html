@@ -78,38 +78,39 @@
         style="width: 50%; height: 500px"
         class="container-fluid mt-5"
       >
-        <p class="fs-2 text-center">Sign in</p>
-        <div class="form-floating mb-3">
-          <input
-            type="email"
-            class="form-control"
-            id="emailSignin"
-            placeholder="name@example.com"
-          />
-          <label for="floatingInput">Email address</label>
-        </div>
-        <div class="form-floating">
-          <input
-            type="password"
-            class="form-control"
-            id="passwordSignin"
-            placeholder="Password"
-          />
-          <label for="floatingPassword">Password</label>
-        </div>
+        <form id="elFormSignIn" action="">
+          <p class="fs-2 text-center">Sign in</p>
+          <div class="form-floating mb-3">
+            <input
+              type="email"
+              class="form-control"
+              id="emailSignin"
+              name="email"
+              placeholder="name@example.com"
+            />
+            <label for="floatingInput">Email address</label>
+          </div>
+          <div class="form-floating">
+            <input
+              type="password"
+              class="form-control"
+              id="passwordSignin"
+              name="password"
+              placeholder="Password"
+            />
+            <label for="floatingPassword">Password</label>
+          </div>
 
-        <div class="text-center mt-5">
-          <button
-            type="button"
-            class="btn btn-primary btn-lg id"
-            id="elLoginButton"
-          >
-            Login in
-          </button>
-          <!-- <button type="button" class="btn btn-outline-primary text-center">
-            Sign up
-          </button> -->
-        </div>
+          <div class="text-center mt-5">
+            <button
+              type="submit"
+              class="btn btn-primary btn-lg id"
+              id="elLoginButton"
+            >
+              Login in
+            </button>
+          </div>
+        </form>
       </div>
     </div>
 
