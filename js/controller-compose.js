@@ -18,9 +18,14 @@ function handleLoadPageCompose() {
     console.log('вы не вошли в систему')
   }
 }
-function handleClientSend(recipient, subject, text) {
-  clientSend(recipient, subject, text)
+
+function handleClientSend(email) {
+  clientSend(email)
   renderComposeBox()
 }
+// function handleClientSend(recipient, subject, text) {
+//   clientSend(recipient, subject, text)
+//   renderComposeBox()
+// }
 
 export { handleLoadPageCompose, handleClientSend }

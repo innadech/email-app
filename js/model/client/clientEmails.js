@@ -9,14 +9,9 @@ import makeId from '../shared/makeId.js'
 let clientInbox = [] // всё что прилошло с сервера запихиваем сюда. а потом уже разгребаем
 let clientOutbox = []
 
-function clientSend(recipient, subject, text) {
+function clientSend(email) {
   if (clientAccount.current) {
-    const isOk = sendEmail(
-      clientAccount.current.email,
-      recipient,
-      subject,
-      text
-    )
+    const isOk = sendEmail(clientAccount.current.email, email)
     if (isOk) {
       console.log('Письмо успешно отправлено!')
       console.log(clientOutbox)
@@ -27,6 +22,25 @@ function clientSend(recipient, subject, text) {
     console.log('Сначала залогиньтесь!')
   }
 }
+
+// function clientSend(recipient, subject, text) {
+//   if (clientAccount.current) {
+//     const isOk = sendEmail(
+//       clientAccount.current.email,
+//       recipient,
+//       subject,
+//       text
+//     )
+//     if (isOk) {
+//       console.log('Письмо успешно отправлено!')
+//       console.log(clientOutbox)
+//     } else {
+//       console.log('Ошибка при отпавке!')
+//     }
+//   } else {
+//     console.log('Сначала залогиньтесь!')
+//   }
+// }
 
 function clientReceiveIncoming() {
   if (clientAccount.current) {

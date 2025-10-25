@@ -3,19 +3,26 @@ import {
   handleClientSend,
 } from './controller-compose.js'
 
-elSend.onclick = onClickButtonSend
+// elSend.onclick = onClickButtonSend
+elFormCompose.onsubmit = onSubmitCompose
 window.onload = onLoadPageCompose
 
 function onLoadPageCompose() {
   handleLoadPageCompose()
 }
 
-function onClickButtonSend() {
-  let recipient = document.querySelector('#elRecipient')
-  let subject = document.querySelector('#elSubject')
-  let text = document.querySelector('#elText')
-  handleClientSend(recipient.vale, subject.value, text.value)
+function onSubmitCompose(e) {
+  e.preventDefault()
+  const email = Object.fromEntries(new FormData(e.target))
+  handleClientSend(email)
 }
+
+// function onClickButtonSend() {
+//   let recipient = document.querySelector('#elRecipient')
+//   let subject = document.querySelector('#elSubject')
+//   let text = document.querySelector('#elText')
+//   handleClientSend(recipient.vale, subject.value, text.value)
+// }
 function renderComposeAccountEmail(email) {
   elAccountEmail.textContent = ''
   elAccountEmail.textContent = email
