@@ -1,4 +1,4 @@
-import { handleLoadPageAddress } from './controller-address.js'
+import { handleLoadPageAddress } from '../controller/controller-address.js'
 
 window.onload = onLoadPageAddress
 

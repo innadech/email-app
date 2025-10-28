@@ -3,9 +3,16 @@ import {
   clientAuthenticate,
   clientAuthorize,
   clientAccount,
-} from './model/client/clientAccount.js'
-import { renderCurrentAccount, renderNavBarLogOut } from './view-navbar.js'
-import { renderSignInPage, renderSignInPageOnline } from './view-sign-in.js'
+} from '../model/client/clientAccount.js'
+import {
+  renderCurrentAccount,
+  renderNavBarLogOut,
+} from '../view/view-navbar.js'
+import {
+  renderSignInPage,
+  renderSignInPageOnline,
+} from '../view/view-sign-in.js'
+import { removeSessionId } from '../model/server/localStorage.js'
 
 function handleClientAuthenticate(account) {
   const isOk = clientAuthenticate(account)
@@ -16,16 +23,10 @@ function handleClientAuthenticate(account) {
     console.log(clientAccount.current.email)
   }
 }
+function handleLogOut() {
+  removeSessionId()
+}
 
-// function handleClientAuthenticate(email, passwd) {
-//   const isOk = clientAuthenticate(email, passwd)
-//   if (isOk) {
-//     console.log('gut')
-//     renderSignInPage('SignUp successful')
-//     handleLoadPageLogin()
-//     console.log(clientAccount.current.email)
-//   }
-// }
 function handleLoadPageLogin() {
   const isAuthorized = clientAuthorize()
   if (isAuthorized) {
@@ -36,4 +37,4 @@ function handleLoadPageLogin() {
   }
 }
 
-export { handleClientAuthenticate, handleLoadPageLogin }
+export { handleClientAuthenticate, handleLoadPageLogin, handleLogOut }

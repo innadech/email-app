@@ -3,7 +3,7 @@ import {
   handleLoadPageAllEmail,
   handleClientReceiveIncoming,
   handleClientReceiveOutcoming,
-} from './controller-all_email.js'
+} from '../controller/controller-all_email.js'
 
 window.onload = onLoadPageAllEmail
 elIncomeButton.onclick = onClickButtonIncome

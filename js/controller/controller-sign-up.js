@@ -1,6 +1,6 @@
-import { clientRegister } from './model/client/clientAccount.js'
+import { clientRegister } from '../model/client/clientAccount.js'
 
-import { renderDivSignUp, renderNotOk } from './view-sign-up.js'
+import { renderDivSignUp, renderNotOk } from '../view/view-sign-up.js'
 
 function handleClientRegister(account) {
   const isOk = clientRegister(account)

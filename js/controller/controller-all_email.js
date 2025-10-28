@@ -1,17 +1,23 @@
-import { clientAuthorize, clientAccount } from './model/client/clientAccount.js'
+import {
+  clientAuthorize,
+  clientAccount,
+} from '../model/client/clientAccount.js'
 import {
   renderEmailsListEmailSheet,
   renderEmailsList,
   renderelAllEmailBox,
-} from './view-all_email.js'
+} from '../view/view-all_email.js'
 import {
   getEmailById,
   clientReceiveIncoming,
   clientReceiveOutcoming,
   clientInbox,
   clientOutbox,
-} from './model/client/clientEmails.js'
-import { renderCurrentAccount, renderNavBarLogOut } from './view-navbar.js'
+} from '../model/client/clientEmails.js'
+import {
+  renderCurrentAccount,
+  renderNavBarLogOut,
+} from '../view/view-navbar.js'
 // import { handleClientReceiveIncoming } from './controller-emailsList.js'
 
 function handleEmailSheet(id) {

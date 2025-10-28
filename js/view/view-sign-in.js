@@ -1,13 +1,12 @@
 import {
   handleClientAuthenticate,
   handleLoadPageLogin,
-} from './controller-sign-in.js'
-
-// elLoginButton.onclick = onClickButtonLogin
+} from '../controller/controller-sign-in.js'
 
 elFormSignIn.onsubmit = onSubmitSignIn
 
 window.onload = onLoadLogin // onLoadPageSignIn
+// window.onload = onLoadLogOut
 
 function onSubmitSignIn(e) {
   e.preventDefault()
@@ -16,13 +15,10 @@ function onSubmitSignIn(e) {
   handleClientAuthenticate(account)
   console.log(account)
 }
-
-// function onClickButtonLogin() {
-//   console.log('hello')
-//   let email = emailSignin.value
-//   let passwd = passwordSignin.value
-//   handleClientAuthenticate(email, passwd)
+// function onLoadLogOut() {
+//   handleLogOut()
 // }
+
 function onLoadLogin() {
   handleLoadPageLogin()
 }

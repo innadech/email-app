@@ -34,6 +34,9 @@ function saveSessionId(sessionId) {
 function restoreSessionId() {
   return sessionStorage.getItem('sessionId')
 }
+function removeSessionId() {
+  sessionStorage.removeItem('sessionId')
+}
 
 export {
   saveAccounts,
@@ -44,4 +47,5 @@ export {
   restoreSessionId,
   saveEmails,
   restoreEmails,
+  removeSessionId,
 }

@@ -1,7 +1,7 @@
 import {
   handleLoadPageCompose,
   handleClientSend,
-} from './controller-compose.js'
+} from '../controller/controller-compose.js'
 
 // elSend.onclick = onClickButtonSend
 elFormCompose.onsubmit = onSubmitCompose

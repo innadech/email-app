@@ -1,4 +1,4 @@
-import { handleClientRegister } from './controller-sign-up.js'
+import { handleClientRegister } from '../controller/controller-sign-up.js'
 
 // эл | штмл элемент | какой именно
 // elButtonSignUp

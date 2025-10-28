@@ -1,11 +1,17 @@
-import { clientAccount, clientAuthorize } from './model/client/clientAccount.js'
-import { clientSend } from './model/client/clientEmails.js'
+import {
+  clientAccount,
+  clientAuthorize,
+} from '../model/client/clientAccount.js'
+import { clientSend } from '../model/client/clientEmails.js'
 import {
   renderComposeBox,
   renderContainerCompose,
   renderComposeAccountEmail,
-} from './view-compose.js'
-import { renderCurrentAccount, renderNavBarLogOut } from './view-navbar.js'
+} from '../view/view-compose.js'
+import {
+  renderCurrentAccount,
+  renderNavBarLogOut,
+} from '../view/view-navbar.js'
 
 function handleLoadPageCompose() {
   const isAuthorized = clientAuthorize()
@@ -23,9 +29,8 @@ function handleClientSend(email) {
   clientSend(email)
   renderComposeBox()
 }
-// function handleClientSend(recipient, subject, text) {
-//   clientSend(recipient, subject, text)
-//   renderComposeBox()
-// }
 
+// function handleLogOutCompose() {
+//   removeSessionId()
+// }
 export { handleLoadPageCompose, handleClientSend }
