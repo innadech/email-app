@@ -19,8 +19,8 @@ function createAccount(account) {
     email: account.email, // address
     password: account.password,
     repeatpassword: account.repeatpassword,
-    firstName: account.firstName,
-    lastName: account.lastName,
+    firstname: account.firstname,
+    lastname: account.lastname,
     // isLoggedIn: false,
   }
 }
@@ -42,25 +42,12 @@ function registerAccount(account) {
   } else {
     serverAccounts.push(createdAccount)
     saveAccounts(serverAccounts)
+    console.log(createdAccount)
     return true
   }
 }
 let sessions = restoreSessions()
 
-// function authenticate(email, password) {
-//   const account = serverAccounts.find(
-//     a => a.email === email && a.password === password
-//   )
-//   if (account) {
-//     const sessionId = startSession(account.email)
-//     saveSessions(sessions)
-//     saveSessionId(sessionId)
-//     console.log(sessionId)
-//     return sessionId
-//   } else {
-//     return false
-//   }
-// }
 function authenticate(account) {
   const findedAccount = serverAccounts.find(
     a => a.email === account.email && a.password === account.password
@@ -91,54 +78,3 @@ function startSession(email) {
 }
 
 export { registerAccount, authenticate, authorize }
-
-// function authenticate(email, passwd) {
-//   const account = serverAccounts.find(
-//     a => a.email === email && a.passwd === passwd
-//   )
-//   if (account) {
-//     saveSessions(sessions)
-//     saveSessionId(startSession(account.email))
-//     return true
-//   } else {
-//     return false
-//   }
-// }
-// function authenticate(email, passwd) {
-//   const account = serverAccounts.find(
-//     a => a.email === email && a.passwd === passwd
-//   )
-//   if (account) {
-//     saveSessions(sessions)
-//     // saveSessionId(startSession(account.email))
-//     return startSession(account.email)
-//   } else {
-//     return false
-//   }
-// }
-// function createAccount(email, passwd, firstName, lastName) {
-//   return {
-//     id: makeId(),
-//     date: Date.now(),
-//     email: email, // address
-//     passwd: passwd,
-//     firstName: firstName,
-//     lastName: lastName,
-//     // isLoggedIn: false,
-//   }
-// }
-
-// function registerAccount(email, passwd, firstName, lastName) {
-//   const account = createAccount(email, passwd, firstName, lastName)
-//   const findedAccount = serverAccounts.find(a => a.email === email )
-//   if (findedAccount) {
-//     return false
-//   } else {
-//     serverAccounts.push(account)
-//     saveAccounts(serverAccounts)
-//     console.log(serverAccounts)
-//     return true
-//   }
-
-//   // return true/false
-// }

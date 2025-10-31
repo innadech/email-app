@@ -15,9 +15,6 @@ function onSubmitSignIn(e) {
   handleClientAuthenticate(account)
   console.log(account)
 }
-// function onLoadLogOut() {
-//   handleLogOut()
-// }
 
 function onLoadLogin() {
   handleLoadPageLogin()

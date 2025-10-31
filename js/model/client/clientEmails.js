@@ -23,25 +23,6 @@ function clientSend(email) {
   }
 }
 
-// function clientSend(recipient, subject, text) {
-//   if (clientAccount.current) {
-//     const isOk = sendEmail(
-//       clientAccount.current.email,
-//       recipient,
-//       subject,
-//       text
-//     )
-//     if (isOk) {
-//       console.log('Письмо успешно отправлено!')
-//       console.log(clientOutbox)
-//     } else {
-//       console.log('Ошибка при отпавке!')
-//     }
-//   } else {
-//     console.log('Сначала залогиньтесь!')
-//   }
-// }
-
 function clientReceiveIncoming() {
   if (clientAccount.current) {
     clientInbox = receiveEmailsIncoming(clientAccount.current.email)
@@ -63,15 +44,15 @@ function clientReceiveOutcoming() {
   }
 }
 
-// function findContactByQuery(query, emails) {
-//   const findedEmail = emails.filter(
-//     email =>
-//       email.firstName ||
-//       email.lastName.includes(query) ||
-//       email.email.includes(query)
-//   )
-//   return findedEmail
-// }
+function findContactByQuery(query, emails) {
+  const findedEmail = emails.filter(
+    email =>
+      email.firstName ||
+      email.lastName.includes(query) ||
+      email.email.includes(query)
+  )
+  return findedEmail
+}
 function getEmailById(id, emails) {
   const findedEmail = emails.find(email => email.id === id)
   return findedEmail
@@ -98,5 +79,5 @@ export {
   clientReceiveIncoming,
   clientReceiveOutcoming,
   getEmailById,
-  // findContactByQuery,
+  findContactByQuery,
 }

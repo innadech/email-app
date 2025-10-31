@@ -15,7 +15,6 @@ email: email, // address
 passwd: passwd,
 firstName: firstName,
 lastName: lastName,
-// isLoggedIn: false,
 }
 
 account.address

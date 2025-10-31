@@ -8,17 +8,17 @@ import {
   renderContainerCompose,
   renderComposeAccountEmail,
 } from '../view/view-compose.js'
-import {
-  renderCurrentAccount,
-  renderNavBarLogOut,
-} from '../view/view-navbar.js'
+// import {
+//   renderCurrentAccount,
+//   renderNavBarLogOut,
+// } from '../view/view-navbar.js'
 
 function handleLoadPageCompose() {
   const isAuthorized = clientAuthorize()
   if (isAuthorized) {
-    renderCurrentAccount(clientAccount.current.email)
+    // renderCurrentAccount(clientAccount.current.email)
     renderComposeAccountEmail(clientAccount.current.email)
-    renderNavBarLogOut()
+    // renderNavBarLogOut()
   } else {
     renderContainerCompose()
     console.log('вы не вошли в систему')
@@ -30,7 +30,4 @@ function handleClientSend(email) {
   renderComposeBox()
 }
 
-// function handleLogOutCompose() {
-//   removeSessionId()
-// }
 export { handleLoadPageCompose, handleClientSend }
