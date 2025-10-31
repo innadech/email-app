@@ -52,4 +52,9 @@ function clientAuthorize() {
 
 // TODO: getCurrentAccount
 // TODO: getCurrentAccountAddress
-export { clientAccount, clientAuthenticate, clientAuthorize, clientRegister }
+export {
+  getCurrentAccountAddress,
+  clientAuthenticate,
+  clientAuthorize,
+  clientRegister,
+}

@@ -47,8 +47,8 @@ function clientReceiveOutcoming() {
 function findContactByQuery(query, emails) {
   const findedEmail = emails.filter(
     email =>
-      email.firstName ||
-      email.lastName.includes(query) ||
+      email.firstname ||
+      email.lastname.includes(query) ||
       email.email.includes(query)
   )
   return findedEmail

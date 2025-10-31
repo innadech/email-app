@@ -1,5 +1,5 @@
 import {
-  clientAccount,
+  getCurrentAccountAddress,
   clientAuthorize,
 } from '../model/client/clientAccount.js'
 import { clientSend } from '../model/client/clientEmails.js'
@@ -8,17 +8,12 @@ import {
   renderContainerCompose,
   renderComposeAccountEmail,
 } from '../view/view-compose.js'
-// import {
-//   renderCurrentAccount,
-//   renderNavBarLogOut,
-// } from '../view/view-navbar.js'
 
 function handleLoadPageCompose() {
   const isAuthorized = clientAuthorize()
+  const currentAddress = getCurrentAccountAddress()
   if (isAuthorized) {
-    // renderCurrentAccount(clientAccount.current.email)
-    renderComposeAccountEmail(clientAccount.current.email)
-    // renderNavBarLogOut()
+    renderComposeAccountEmail(currentAddress)
   } else {
     renderContainerCompose()
     console.log('вы не вошли в систему')

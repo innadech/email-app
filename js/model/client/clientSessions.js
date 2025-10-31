@@ -4,3 +4,4 @@ function logout() {
   //
   removeSessionId()
 }
+export { logout }

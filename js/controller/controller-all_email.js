@@ -27,10 +27,8 @@ function handleEmailSheet(id) {
 function handleLoadPageAllEmail() {
   const isAuthorized = clientAuthorize()
   if (isAuthorized) {
-    // renderCurrentAccount(clientAccount.current.email)
     clientReceiveIncoming()
     renderEmailsList(clientInbox)
-    // renderNavBarLogOut()
     console.log()
   } else {
     renderelAllEmailBox()
@@ -44,14 +42,10 @@ function handleClientReceiveOutcoming() {
   clientReceiveOutcoming()
   renderEmailsList(clientOutbox)
 }
-// function handleSearchEmail() {
-//   const findedContactByQuery= findContactByQuery()
 
-// }
 export {
   handleEmailSheet,
   handleLoadPageAllEmail,
   handleClientReceiveIncoming,
   handleClientReceiveOutcoming,
-  // handleSearchEmail,
 }

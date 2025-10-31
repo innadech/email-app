@@ -1,12 +1,12 @@
 import {
   clientAuthorize,
-  clientAccount,
+  getCurrentAccountAddress,
 } from '../model/client/clientAccount.js'
 import {
   findContactByQuery,
   clientOutbox,
 } from '../model/client/clientEmails.js'
-import { removeSessionId } from '../model/server/localStorage.js'
+import { logout } from '../model/client/clientSessions.js'
 import {
   renderCurrentAccount,
   renderNavBarLogOut,
@@ -14,15 +14,16 @@ import {
 } from '../view/view-navbar.js'
 
 function handleLoadNavbar() {
+  const currentAddress = getCurrentAccountAddress()
   const isAuthorized = clientAuthorize()
   if (isAuthorized) {
     renderNavBarLogOut()
-    renderCurrentAccount(clientAccount.current.email)
+    renderCurrentAccount(currentAddress)
   }
 }
 
 function handleLogOut() {
-  removeSessionId()
+  logout()
 }
 function handleSearchEmail(query) {
   const findedContactByQuery = findContactByQuery(query, clientOutbox)
