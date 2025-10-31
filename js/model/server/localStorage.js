@@ -1,3 +1,5 @@
+// localStorage - серверный хранилище
+
 function saveAccounts(accounts) {
   const stringifiedAccounts = JSON.stringify(accounts)
   localStorage.setItem('accounts', stringifiedAccounts)
@@ -27,10 +29,10 @@ function restoreSessions() {
   return parsedSessions ?? {}
 }
 
+// TODO:
 function saveSessionId(sessionId) {
   sessionStorage.setItem('sessionId', sessionId)
 }
-
 function restoreSessionId() {
   return sessionStorage.getItem('sessionId')
 }

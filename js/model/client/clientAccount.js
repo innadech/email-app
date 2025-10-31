@@ -10,6 +10,14 @@ import {
 
 const clientAccount = { current: null }
 
+// TODO:
+function getCurrentAccount() {
+  return clientAccount.current
+}
+function getCurrentAccountAddress() {
+  return clientAccount.current.address
+}
+
 function clientRegister(account) {
   const signUp = registerAccount(account)
   if (signUp) {
@@ -42,4 +50,6 @@ function clientAuthorize() {
   }
 }
 
+// TODO: getCurrentAccount
+// TODO: getCurrentAccountAddress
 export { clientAccount, clientAuthenticate, clientAuthorize, clientRegister }

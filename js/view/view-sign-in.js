@@ -10,10 +10,8 @@ window.onload = onLoadLogin // onLoadPageSignIn
 
 function onSubmitSignIn(e) {
   e.preventDefault()
-  console.log('hello')
-  const account = Object.fromEntries(new FormData(e.target))
-  handleClientAuthenticate(account)
-  console.log(account)
+  const auth = Object.fromEntries(new FormData(e.target))
+  handleClientAuthenticate(auth)
 }
 
 function onLoadLogin() {

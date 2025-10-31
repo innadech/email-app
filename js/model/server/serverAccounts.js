@@ -48,10 +48,17 @@ function registerAccount(account) {
 }
 let sessions = restoreSessions()
 
-function authenticate(account) {
+// function getAddressByAuth(auth) {
+//   return serverAccounts.find(
+//     a => a.address === auth.address && a.password === auth.password
+//   ).address
+// }
+
+function authenticate(auth) {
   const findedAccount = serverAccounts.find(
-    a => a.email === account.email && a.password === account.password
+    a => a.email === auth.email && a.password === auth.password
   )
+  const addressMaybe = getAddressByAuth(auth)
   if (findedAccount) {
     const sessionId = startSession(findedAccount.email)
     saveSessions(sessions)

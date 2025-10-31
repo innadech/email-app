@@ -4,20 +4,16 @@ import {
   clientAuthorize,
   clientAccount,
 } from '../model/client/clientAccount.js'
-// import {
-//   renderCurrentAccount,
-//   renderNavBarLogOut,
-// } from '../view/view-navbar.js'
 import {
   renderSignInPage,
   renderSignInPageOnline,
 } from '../view/view-sign-in.js'
+
 // import { removeSessionId } from '../model/server/localStorage.js'
 
-function handleClientAuthenticate(account) {
-  const isOk = clientAuthenticate(account)
+function handleClientAuthenticate(auth) {
+  const isOk = clientAuthenticate(auth)
   if (isOk) {
-    console.log('gut')
     renderSignInPage('SignIn successful')
     handleLoadPageLogin()
     console.log(clientAccount.current.email)
@@ -27,10 +23,7 @@ function handleClientAuthenticate(account) {
 function handleLoadPageLogin() {
   const isAuthorized = clientAuthorize()
   if (isAuthorized) {
-    console.log('ok authorized')
     renderSignInPageOnline()
-    // renderNavBarLogOut()
-    // renderCurrentAccount(clientAccount.current.email)
   }
 }
 
