@@ -53,6 +53,7 @@ function clientAuthorize() {
 // TODO: getCurrentAccount
 // TODO: getCurrentAccountAddress
 export {
+  getCurrentAccount,
   getCurrentAccountAddress,
   clientAuthenticate,
   clientAuthorize,

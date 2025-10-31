@@ -1,4 +1,4 @@
-import { clientAccount } from './clientAccount.js'
+import { getCurrentAccount, getCurrentAccountAddress } from './clientAccount.js'
 import {
   sendEmail,
   receiveEmailsIncoming,
@@ -10,8 +10,10 @@ let clientInbox = [] // всё что прилошло с сервера зап�
 let clientOutbox = []
 
 function clientSend(email) {
-  if (clientAccount.current) {
-    const isOk = sendEmail(clientAccount.current.email, email)
+  const currentAccount = getCurrentAccount()
+  const currentAddress = getCurrentAccountAddress()
+  if (currentAccount) {
+    const isOk = sendEmail(currentAddress, email)
     if (isOk) {
       console.log('Письмо успешно отправлено!')
       console.log(clientOutbox)
@@ -24,8 +26,10 @@ function clientSend(email) {
 }
 
 function clientReceiveIncoming() {
-  if (clientAccount.current) {
-    clientInbox = receiveEmailsIncoming(clientAccount.current.email)
+  const currentAccount = getCurrentAccount()
+  const currentAddress = getCurrentAccountAddress()
+  if (currentAccount) {
+    clientInbox = receiveEmailsIncoming(currentAddress)
     console.log('Входящие письма успешно получны')
     console.log(clientInbox)
     console.log(addresses)
@@ -35,8 +39,10 @@ function clientReceiveIncoming() {
 }
 
 function clientReceiveOutcoming() {
-  if (clientAccount.current) {
-    clientOutbox = receiveEmailsOutcoming(clientAccount.current.email)
+  const currentAccount = getCurrentAccount()
+  const currentAddress = getCurrentAccountAddress()
+  if (currentAccount) {
+    clientOutbox = receiveEmailsOutcoming(currentAddress)
     console.log('Исходящие письма успешно получны')
     console.log(clientInbox)
   } else {
