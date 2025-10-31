@@ -3,7 +3,6 @@ import {
   handleLoadNavbar,
   handleSearchEmail,
 } from '../controller/controller-navbar.js'
-// import { handleLogOutCompose } from '../controller/controller-compose.js'
 
 window.onload = onLoadNavbar
 elButtonSearch.onclick = onClickSearch

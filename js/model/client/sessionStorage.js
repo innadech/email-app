@@ -13,3 +13,4 @@ function restoreSessionId() {
 function removeSessionId() {
   sessionStorage.removeItem('sessionId')
 }
+export { saveSessionId, restoreSessionId, removeSessionId }

@@ -12,3 +12,4 @@ function stopSessionById(sessionId) {
   delete sessions[sessionId]
   saveSessions(sessions)
 }
+export { stopSessionById }

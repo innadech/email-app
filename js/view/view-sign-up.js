@@ -20,22 +20,6 @@ function onSubmitSignUp(e) {
   console.log(account)
 }
 
-// function onSubmitSignUp(e) {
-//   e.preventDefault()
-//   console.log('???')
-//   let email = emailSignup.value
-//   let passwd = passwordSignup.value
-//   let repeatpasswd = repeatpasswordSignup.value
-//   let firstName = firstnameSignup.value
-//   let lastName = lastnameSignup.value
-//   if (email === '') {
-//     console.log('Please fill in email')
-//   }
-//   if (passwd === repeatpasswd)
-//     handleClientRegister(email, passwd, firstName, lastName)
-//   console.log(email)
-// }
-
 // renderDivSignUp(text) // 'SignUp successful' | 'Account already exists'
 function renderDivSignUp(text) {
   elSignUpPage.textContent = '' // .innerHTML = ''

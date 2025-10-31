@@ -1,7 +1,7 @@
 // сервер не трогаем без клиента.
 // console.log(serverAccounts) // недоступен! и это хорошо!
 
-import { saveSessionId } from '../server/localStorage.js'
+import { saveSessionId } from '../client/sessionStorage.js'
 import {
   registerAccount,
   authenticate,
@@ -10,7 +10,6 @@ import {
 
 const clientAccount = { current: null }
 
-// TODO:
 function getCurrentAccount() {
   return clientAccount.current
 }
@@ -41,8 +40,9 @@ function clientAuthenticate(account) {
 }
 function clientAuthorize() {
   const isAuthorized = authorize()
+  const currentAccount = getCurrentAccount()
   if (isAuthorized) {
-    clientAccount.current = isAuthorized
+    currentAccount = isAuthorized
     console.log('Вход успешный!', clientAccount.current.email)
     return true
   } else {
@@ -50,8 +50,6 @@ function clientAuthorize() {
   }
 }
 
-// TODO: getCurrentAccount
-// TODO: getCurrentAccountAddress
 export {
   getCurrentAccount,
   getCurrentAccountAddress,

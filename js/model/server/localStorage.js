@@ -29,25 +29,25 @@ function restoreSessions() {
   return parsedSessions ?? {}
 }
 
-// TODO:
-function saveSessionId(sessionId) {
-  sessionStorage.setItem('sessionId', sessionId)
-}
-function restoreSessionId() {
-  return sessionStorage.getItem('sessionId')
-}
-function removeSessionId() {
-  sessionStorage.removeItem('sessionId')
-}
+// // TODO:
+// function saveSessionId(sessionId) {
+//   sessionStorage.setItem('sessionId', sessionId)
+// }
+// function restoreSessionId() {
+//   return sessionStorage.getItem('sessionId')
+// }
+// function removeSessionId() {
+//   sessionStorage.removeItem('sessionId')
+// }
 
 export {
   saveAccounts,
   restoreAccounts,
   saveSessions,
   restoreSessions,
-  saveSessionId,
-  restoreSessionId,
+  // saveSessionId,
+  // restoreSessionId,
   saveEmails,
   restoreEmails,
-  removeSessionId,
+  // removeSessionId,
 }

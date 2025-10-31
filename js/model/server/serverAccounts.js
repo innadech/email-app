@@ -4,9 +4,8 @@ import {
   restoreAccounts,
   saveSessions,
   restoreSessions,
-  saveSessionId,
-  restoreSessionId,
 } from './localStorage.js'
+import { saveSessionId, restoreSessionId } from '../client/sessionStorage.js'
 // import * as x from './localStorage.js'
 // console.log(x)
 
