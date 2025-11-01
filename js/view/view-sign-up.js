@@ -14,10 +14,8 @@ elFormSignUp.onsubmit = onSubmitSignUp
 
 function onSubmitSignUp(e) {
   e.preventDefault()
-  console.log('???')
   const account = Object.fromEntries(new FormData(e.target))
   handleClientRegister(account)
-  console.log(account)
 }
 
 // renderDivSignUp(text) // 'SignUp successful' | 'Account already exists'

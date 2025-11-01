@@ -16,7 +16,7 @@ function handleLoadPageCompose() {
     renderComposeAccountEmail(currentAddress)
   } else {
     renderContainerCompose()
-    console.log('вы не вошли в систему')
+    console.log('Вы не вошли в систему')
   }
 }
 

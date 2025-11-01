@@ -6,10 +6,10 @@
 
 import { restoreSessions, saveSessions } from './localStorage.js'
 
-let sessions = restoreSessions()
-
 function stopSessionById(sessionId) {
+  const sessions = restoreSessions()
   delete sessions[sessionId]
   saveSessions(sessions)
 }
+
 export { stopSessionById }

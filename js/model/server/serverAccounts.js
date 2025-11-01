@@ -5,9 +5,6 @@ import {
   saveSessions,
   restoreSessions,
 } from './localStorage.js'
-import { saveSessionId, restoreSessionId } from '../client/sessionStorage.js'
-// import * as x from './localStorage.js'
-// console.log(x)
 
 const serverAccounts = restoreAccounts()
 
@@ -20,7 +17,6 @@ function createAccount(account) {
     repeatpassword: account.repeatpassword,
     firstname: account.firstname,
     lastname: account.lastname,
-    // isLoggedIn: false,
   }
 }
 
@@ -41,7 +37,6 @@ function registerAccount(account) {
   } else {
     serverAccounts.push(createdAccount)
     saveAccounts(serverAccounts)
-    console.log(createdAccount)
     return true
   }
 }
@@ -58,22 +53,21 @@ function authenticate(auth) {
   if (addressMaybe) {
     const sessionId = startSession(addressMaybe.email)
     saveSessions(sessions)
-    saveSessionId(sessionId)
-    console.log(sessionId)
     return sessionId
   } else {
     return false
   }
 }
-function authorize() {
-  const email = sessions[restoreSessionId()]
+
+function authorize(sessionId) {
+  const email = sessions[sessionId]
   const account = serverAccounts.find(account => account.email === email)
   if (account) {
-    console.log('super')
-    return { email: account.email }
+    return account
   }
   return false
 }
+
 function startSession(email) {
   const sessionId = Math.random()
   sessions[sessionId] = email

@@ -29,7 +29,6 @@ function handleLoadPageAllEmail() {
   if (isAuthorized) {
     clientReceiveIncoming()
     renderEmailsList(clientInbox)
-    console.log()
   } else {
     renderelAllEmailBox()
   }

@@ -19,9 +19,7 @@ function onClickButtonOutcome() {
   handleClientReceiveOutcoming()
 }
 function onClickElDivContainerWrapEmail(e) {
-  console.log(e.target.tagName)
   const id = e.target.closest('.shadow-none').getAttribute('id')
-  console.log(id)
   handleEmailSheet(id)
 }
 

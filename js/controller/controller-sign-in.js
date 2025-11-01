@@ -1,4 +1,3 @@
-console.log('controller-sign-in.js')
 import {
   clientAuthenticate,
   clientAuthorize,
@@ -15,7 +14,7 @@ function handleClientAuthenticate(auth) {
   if (isOk) {
     renderSignInPage('SignIn successful')
     handleLoadPageLogin()
-    console.log(currentAddress)
+    console.log('???', currentAddress)
   }
 }
 

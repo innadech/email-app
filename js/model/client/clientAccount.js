@@ -1,7 +1,4 @@
-// сервер не трогаем без клиента.
-// console.log(serverAccounts) // недоступен! и это хорошо!
-
-import { saveSessionId } from '../client/sessionStorage.js'
+import { restoreSessionId, saveSessionId } from './sessionStorage.js'
 import {
   registerAccount,
   authenticate,
@@ -10,48 +7,53 @@ import {
 
 const clientAccount = { current: null }
 
-function getCurrentAccount() {
-  return clientAccount.current
+function setCurrentAccount(clientAccountCurrent) {
+  clientAccount.current = clientAccountCurrent
 }
 function getCurrentAccountAddress() {
-  return clientAccount.current.address
+  return clientAccount.current?.email
 }
 
 function clientRegister(account) {
   const signUp = registerAccount(account)
   if (signUp) {
-    console.log('регистрация удалась!')
+    console.log('Регистрация удалась!')
     return true
   } else {
     return false
   }
 }
 
-function clientAuthenticate(account) {
-  const isauthenticated = authenticate(account)
-  if (isauthenticated) {
-    console.log(' прошли успешно authenticate')
-    saveSessionId(isauthenticated)
+function clientAuthenticate(auth) {
+  const authResult = authenticate(auth)
+  if (authResult) {
+    console.log('Прошли успешно authenticate')
+    saveSessionId(authResult)
     return true
   } else {
-    console.log('не прошли успешно authenticate')
+    console.log('Authenticate не удался')
     return false
   }
 }
+
 function clientAuthorize() {
-  const isAuthorized = authorize()
-  const currentAccount = getCurrentAccount()
-  if (isAuthorized) {
-    currentAccount = isAuthorized
-    console.log('Вход успешный!', clientAccount.current.email)
-    return true
+  const sessionId = restoreSessionId()
+  if (sessionId) {
+    const authResult = authorize(sessionId)
+    if (authResult) {
+      setCurrentAccount(authResult)
+      console.log('Вход успешный!', getCurrentAccountAddress())
+      return true
+    } else {
+      return false
+    }
   } else {
     return false
   }
 }
 
 export {
-  getCurrentAccount,
+  setCurrentAccount,
   getCurrentAccountAddress,
   clientAuthenticate,
   clientAuthorize,
