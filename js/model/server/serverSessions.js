@@ -1,10 +1,12 @@
-// логика работы с сессиями
-
-// создание сессии
-// удаление сессии
-// получение accountEmail<<accountAddress>> для sessionId
-
 import { restoreSessions, saveSessions } from './localStorage.js'
+
+function startSession(email) {
+  const sessions = restoreSessions()
+  const sessionId = Math.random()
+  sessions[sessionId] = email
+  saveSessions(sessions)
+  return sessionId
+}
 
 function stopSessionById(sessionId) {
   const sessions = restoreSessions()
@@ -12,4 +14,9 @@ function stopSessionById(sessionId) {
   saveSessions(sessions)
 }
 
-export { stopSessionById }
+function getEmailBySessionId(sessionId) {
+  const sessions = restoreSessions()
+  return sessions[sessionId]
+}
+
+export { getEmailBySessionId, startSession, stopSessionById }

@@ -1,10 +1,6 @@
 import makeId from '../shared/makeId.js'
-import {
-  saveAccounts,
-  restoreAccounts,
-  saveSessions,
-  restoreSessions,
-} from './localStorage.js'
+import { saveAccounts, restoreAccounts } from './localStorage.js'
+import { getEmailBySessionId, startSession } from './serverSessions.js'
 
 const serverAccounts = restoreAccounts()
 
@@ -40,7 +36,6 @@ function registerAccount(account) {
     return true
   }
 }
-let sessions = restoreSessions()
 
 function getAddressByAuth(auth) {
   return serverAccounts.find(
@@ -52,7 +47,6 @@ function authenticate(auth) {
   const addressMaybe = getAddressByAuth(auth)
   if (addressMaybe) {
     const sessionId = startSession(addressMaybe.email)
-    saveSessions(sessions)
     return sessionId
   } else {
     return false
@@ -60,18 +54,12 @@ function authenticate(auth) {
 }
 
 function authorize(sessionId) {
-  const email = sessions[sessionId]
+  const email = getEmailBySessionId(sessionId)
   const account = serverAccounts.find(account => account.email === email)
   if (account) {
     return account
   }
   return false
-}
-
-function startSession(email) {
-  const sessionId = Math.random()
-  sessions[sessionId] = email
-  return sessionId
 }
 
 export { registerAccount, authenticate, authorize }
