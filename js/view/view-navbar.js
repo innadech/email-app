@@ -37,14 +37,6 @@ function generateLi() {
   return elLi
 }
 
-function renderEmailsList(emails) {
-  elEmailsList.innerHTML = ''
-  for (const email of emails) {
-    const elGenerateEmail = generateEmail(email)
-    elEmailsList.appendChild(elGenerateEmail)
-  }
-}
-
 function generateEmail(email) {
   const elDivContainerWrap = document.createElement('div')
   const elDivContainer = document.createElement('div')

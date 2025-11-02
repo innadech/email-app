@@ -1,7 +1,3 @@
-// TODO:
-
-// sessionStorage - клиентский хранилище
-
 function saveSessionId(sessionId) {
   sessionStorage.setItem('sessionId', sessionId)
 }
@@ -13,4 +9,5 @@ function restoreSessionId() {
 function removeSessionId() {
   sessionStorage.removeItem('sessionId')
 }
+
 export { saveSessionId, restoreSessionId, removeSessionId }

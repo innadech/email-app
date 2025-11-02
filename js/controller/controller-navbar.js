@@ -2,20 +2,17 @@ import {
   clientAuthorize,
   getCurrentAccountAddress,
 } from '../model/client/clientAccount.js'
-import {
-  findContactByQuery,
-  clientOutbox,
-} from '../model/client/clientEmails.js'
+import { filtrateEmailsByQuery } from '../model/client/clientEmails.js'
 import { logout } from '../model/client/clientSessions.js'
+import { renderEmailsList } from '../view/view-all_email.js'
 import {
   renderCurrentAccount,
   renderNavBarLogOut,
-  renderEmailsList,
 } from '../view/view-navbar.js'
 
 function handleLoadNavbar() {
-  const currentAddress = getCurrentAccountAddress()
   const isAuthorized = clientAuthorize()
+  const currentAddress = getCurrentAccountAddress()
   if (isAuthorized) {
     renderNavBarLogOut()
     renderCurrentAccount(currentAddress)
@@ -26,8 +23,8 @@ function handleLogOut() {
   logout()
 }
 function handleSearchEmail(query) {
-  const findedContactByQuery = findContactByQuery(query, clientOutbox)
-  renderEmailsList(findContactByQuery)
+  const findedContactByQuery = filtrateEmailsByQuery(query)
+  renderEmailsList(findedContactByQuery)
 }
 
 export { handleLoadNavbar, handleLogOut, handleSearchEmail }

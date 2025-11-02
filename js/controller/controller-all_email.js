@@ -1,7 +1,4 @@
-import {
-  clientAuthorize,
-  // clientAccount,
-} from '../model/client/clientAccount.js'
+import { clientAuthorize } from '../model/client/clientAccount.js'
 import {
   renderEmailsListEmailSheet,
   renderEmailsList,
@@ -13,17 +10,13 @@ import {
   clientReceiveOutcoming,
   clientInbox,
   clientOutbox,
-  // handleSearchEmail,
 } from '../model/client/clientEmails.js'
-import {
-  renderCurrentAccount,
-  renderNavBarLogOut,
-} from '../view/view-navbar.js'
 
 function handleEmailSheet(id) {
-  const email = getEmailById(id, clientInbox)
-  renderEmailsListEmailSheet(email)
+  const email = getEmailById(id)
+  if (email) renderEmailsListEmailSheet(email)
 }
+
 function handleLoadPageAllEmail() {
   const isAuthorized = clientAuthorize()
   if (isAuthorized) {
@@ -37,6 +30,7 @@ function handleClientReceiveIncoming() {
   clientReceiveIncoming()
   renderEmailsList(clientInbox)
 }
+
 function handleClientReceiveOutcoming() {
   clientReceiveOutcoming()
   renderEmailsList(clientOutbox)

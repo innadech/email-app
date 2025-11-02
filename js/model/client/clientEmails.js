@@ -5,8 +5,10 @@ import {
   receiveEmailsOutcoming,
 } from '../server/serverEmails.js'
 
-let clientInbox = [] // всё что прилошло с сервера запихиваем сюда. а потом уже разгребаем
+let clientInbox = [] // всё что пришло с сервера запихиваем сюда. а потом уже разгребаем
 let clientOutbox = []
+
+let clientAll = () => [...clientInbox, ...clientOutbox]
 
 function clientSend(email) {
   const senderAddress = getCurrentAccountAddress()
@@ -42,18 +44,17 @@ function clientReceiveOutcoming() {
   }
 }
 
-function findContactByQuery(query, emails) {
-  const findedEmail = emails.filter(
+function filtrateEmailsByQuery(query) {
+  return clientAll().filter(
     email =>
-      email.firstname ||
+      email.firstname.includes(query) ||
       email.lastname.includes(query) ||
       email.email.includes(query)
   )
-  return findedEmail
 }
-function getEmailById(id, emails) {
-  const findedEmail = emails.find(email => email.id === id)
-  return findedEmail
+
+function getEmailById(id) {
+  return clientAll().find(email => email.id === id)
 }
 
 function parseAddresses() {
@@ -79,5 +80,5 @@ export {
   clientReceiveIncoming,
   clientReceiveOutcoming,
   getEmailById,
-  findContactByQuery,
+  filtrateEmailsByQuery,
 }
