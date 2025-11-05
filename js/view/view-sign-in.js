@@ -11,6 +11,7 @@ window.onload = onLoadLogin // onLoadPageSignIn
 function onSubmitSignIn(e) {
   e.preventDefault()
   const auth = Object.fromEntries(new FormData(e.target))
+  console.log(auth)
   handleClientAuthenticate(auth)
 }
 

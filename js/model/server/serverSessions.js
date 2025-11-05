@@ -1,10 +1,12 @@
 import { restoreSessions, saveSessions } from './localStorage.js'
 
-function startSession(email) {
+function startSession(address) {
+  console.log('!!!', address)
   const sessions = restoreSessions()
   const sessionId = Math.random()
-  sessions[sessionId] = email
+  sessions[sessionId] = address
   saveSessions(sessions)
+  console.log(':::', sessions)
   return sessionId
 }
 

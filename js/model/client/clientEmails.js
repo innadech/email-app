@@ -8,6 +8,9 @@ import {
 let clientInbox = [] // всё что пришло с сервера запихиваем сюда. а потом уже разгребаем
 let clientOutbox = []
 
+window.clientInbox = clientInbox
+window.clientOutbox = clientOutbox
+
 let clientAll = () => [...clientInbox, ...clientOutbox]
 
 function clientSend(email) {
@@ -24,9 +27,12 @@ function clientSend(email) {
   }
 }
 
+window.clientReceiveIncoming = clientReceiveIncoming
+
 function clientReceiveIncoming() {
   const currentAddress = getCurrentAccountAddress()
   if (currentAddress) {
+    // ссылка обновляется!!
     clientInbox = receiveEmailsIncoming(currentAddress)
     console.log('Входящие письма успешно получны')
   } else {

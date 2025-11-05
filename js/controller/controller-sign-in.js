@@ -10,6 +10,7 @@ import {
 
 function handleClientAuthenticate(auth) {
   const isOk = clientAuthenticate(auth)
+  console.log(isOk)
   const currentAddress = getCurrentAccountAddress()
   if (isOk) {
     renderSignInPage('SignIn successful')

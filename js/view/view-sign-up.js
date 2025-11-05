@@ -13,22 +13,16 @@ import { handleClientRegister } from '../controller/controller-sign-up.js'
 elFormSignUp.onsubmit = onSubmitSignUp
 
 function onSubmitSignUp(e) {
-  e.preventDefault()
   const account = Object.fromEntries(new FormData(e.target))
+  e.preventDefault()
   handleClientRegister(account)
 }
 
-// renderDivSignUp(text) // 'SignUp successful' | 'Account already exists'
 function renderDivSignUp(text) {
-  elSignUpPage.textContent = '' // .innerHTML = ''
   const elH = document.createElement('h2')
+  elSignUpPage.innerHTML = ''
   elH.textContent = text
   elSignUpPage.appendChild(elH)
 }
-function renderNotOk() {
-  elSignUpPage.textContent = ''
-  const elH = document.createElement('h2')
-  elH.textContent = 'Account already exists'
-  elSignUpPage.appendChild(elH)
-}
-export { renderDivSignUp, renderNotOk }
+
+export { renderDivSignUp }

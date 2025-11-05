@@ -1,13 +1,13 @@
 import { clientRegister } from '../model/client/clientAccount.js'
 
-import { renderDivSignUp, renderNotOk } from '../view/view-sign-up.js'
+import { renderDivSignUp } from '../view/view-sign-up.js'
 
-function handleClientRegister(account) {
-  const isOk = clientRegister(account)
+function handleClientRegister(regData) {
+  const isOk = clientRegister(regData)
   if (isOk) {
     renderDivSignUp('Your registration was successful.')
   } else {
-    renderNotOk()
+    renderDivSignUp('Registration fail')
   }
 }
 export { handleClientRegister }

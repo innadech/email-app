@@ -4,30 +4,30 @@ import { getEmailBySessionId, startSession } from './serverSessions.js'
 
 const serverAccounts = restoreAccounts()
 
-function createAccount(account) {
+function createAccount(regData) {
   return {
     id: makeId(),
     date: Date.now(),
-    email: account.email, // address
-    password: account.password,
-    repeatpassword: account.repeatpassword,
-    firstname: account.firstname,
-    lastname: account.lastname,
+    address: regData.address,
+    password: regData.password,
+    firstname: regData.firstname,
+    lastname: regData.lastname,
   }
 }
 
-function checkAccount(a) {
+function checkRegData(a) {
   const okEmail =
-    a.email && typeof a.email === 'string' && a.email.trim().length > 0
-  const okPasswd = a.email && a.password === a.repeatpassword
+    a.address && typeof a.address === 'string' && a.address.trim().length > 0
+  const okPasswd = a.address && a.password && a.password === a.repeatpassword
   if (okEmail && okPasswd) return true
+  console.log('неправильно заполнена форма регистрации')
   return false
 }
 
-function registerAccount(account) {
-  if (!checkAccount(account)) return false
-  const createdAccount = createAccount(account)
-  const findedAccount = serverAccounts.find(a => a.email === account.email)
+function registerAccount(regData) {
+  if (!checkRegData(regData)) return false
+  const createdAccount = createAccount(regData)
+  const findedAccount = serverAccounts.find(a => a.address === regData.address)
   if (findedAccount) {
     return false
   } else {
@@ -38,15 +38,25 @@ function registerAccount(account) {
 }
 
 function getAddressByAuth(auth) {
-  return serverAccounts.find(
+  const findedAccount = serverAccounts.find(
     a => a.address === auth.address && a.password === auth.password
-  ).address
+  )
+
+  console.log('>>', findedAccount)
+
+  if (findedAccount === undefined) {
+    return undefined
+  } else {
+    return findedAccount.address
+  }
 }
 
 function authenticate(auth) {
+  console.log('###', auth)
   const addressMaybe = getAddressByAuth(auth)
+  console.log('>>>', addressMaybe)
   if (addressMaybe) {
-    const sessionId = startSession(addressMaybe.email)
+    const sessionId = startSession(addressMaybe)
     return sessionId
   } else {
     return false
@@ -54,8 +64,8 @@ function authenticate(auth) {
 }
 
 function authorize(sessionId) {
-  const email = getEmailBySessionId(sessionId)
-  const account = serverAccounts.find(account => account.email === email)
+  const address = getEmailBySessionId(sessionId)
+  const account = serverAccounts.find(a => a.address === address)
   if (account) {
     return account
   }

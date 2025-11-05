@@ -10,6 +10,7 @@ import {
   clientReceiveOutcoming,
   clientInbox,
   clientOutbox,
+  filtrateEmailsByQuery,
 } from '../model/client/clientEmails.js'
 
 function handleEmailSheet(id) {

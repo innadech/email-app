@@ -6,10 +6,10 @@ import {
 } from '../controller/controller-all_email.js'
 
 window.onload = onLoadPageAllEmail
-elIncomeButton.onclick = onClickButtonIncome
-elOutcomeButton.onclick = onClickButtonOutcome
 
 function onLoadPageAllEmail() {
+  elIncomeButton.onclick = onClickButtonIncome
+  elOutcomeButton.onclick = onClickButtonOutcome
   handleLoadPageAllEmail()
 }
 function onClickButtonIncome() {

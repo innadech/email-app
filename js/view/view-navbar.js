@@ -5,7 +5,6 @@ import {
 } from '../controller/controller-navbar.js'
 
 window.onload = onLoadNavbar
-elButtonSearch.onclick = onClickSearch
 
 function onClickSearch() {
   const query = elInputSearch.value
@@ -15,6 +14,7 @@ function onClickLogOut() {
   handleLogOut()
 }
 function onLoadNavbar() {
+  // elButtonSearch.onclick = onClickSearch
   handleLoadNavbar()
 }
 
@@ -89,4 +89,4 @@ function generateEmail(email) {
   return elDivContainerWrap
 }
 
-export { renderCurrentAccount, renderNavBarLogOut, renderEmailsList }
+export { renderCurrentAccount, renderNavBarLogOut }

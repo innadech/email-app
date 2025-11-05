@@ -11,12 +11,12 @@ function setCurrentAccount(clientAccountCurrent) {
   clientAccount.current = clientAccountCurrent
 }
 function getCurrentAccountAddress() {
-  return clientAccount.current?.email
+  return clientAccount.current?.address
 }
 
 function clientRegister(account) {
-  const signUp = registerAccount(account)
-  if (signUp) {
+  const regResult = registerAccount(account)
+  if (regResult) {
     console.log('Регистрация удалась!')
     return true
   } else {
