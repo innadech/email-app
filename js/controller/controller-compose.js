@@ -13,6 +13,7 @@ function handleLoadPageCompose() {
   const isAuthorized = clientAuthorize()
   const currentAddress = getCurrentAccountAddress()
   if (isAuthorized) {
+    console.log(currentAddress)
     renderComposeAccountEmail(currentAddress)
   } else {
     renderContainerCompose()
