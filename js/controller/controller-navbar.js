@@ -3,7 +3,6 @@ import {
   getCurrentAccountAddress,
 } from '../model/client/clientAccount.js'
 import { logout } from '../model/client/clientSessions.js'
-import { renderEmailsList } from '../view/view-all_email.js'
 import {
   renderCurrentAccount,
   renderNavBarLogOut,
@@ -22,9 +21,4 @@ function handleLogOut() {
   logout()
 }
 
-function handleSearchEmail(query) {
-  const findedContactByQuery = filtrateEmailsByQuery(query)
-  renderEmailsList(findedContactByQuery)
-}
-
-export { handleLoadNavbar, handleLogOut, handleSearchEmail }
+export { handleLoadNavbar, handleLogOut }

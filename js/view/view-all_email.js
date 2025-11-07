@@ -3,10 +3,17 @@ import {
   handleLoadPageAllEmail,
   handleClientReceiveIncoming,
   handleClientReceiveOutcoming,
+  handleSearchEmail,
 } from '../controller/controller-all_email.js'
 import { handleLoadNavbar } from '../controller/controller-navbar.js'
 
 window.onload = onLoadPageAllEmail
+elButtonSearch.onclick = onClickSearch
+
+function onClickSearch() {
+  const query = elInputSearch.value
+  handleSearchEmail(query)
+}
 
 function onLoadPageAllEmail() {
   elIncomeButton.onclick = onClickButtonIncome

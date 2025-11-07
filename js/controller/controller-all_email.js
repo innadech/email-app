@@ -18,6 +18,10 @@ function handleEmailSheet(id) {
   const email = getEmailById(id)
   if (email) renderEmailsListEmailSheet(email)
 }
+function handleSearchEmail(query) {
+  const findedContactByQuery = filtrateEmailsByQuery(query)
+  renderEmailsList(findedContactByQuery)
+}
 
 function handleLoadPageAllEmail() {
   const isAuthorized = clientAuthorize()
@@ -43,4 +47,5 @@ export {
   handleLoadPageAllEmail,
   handleClientReceiveIncoming,
   handleClientReceiveOutcoming,
+  handleSearchEmail,
 }

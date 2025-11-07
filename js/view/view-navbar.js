@@ -4,19 +4,9 @@ import {
   handleSearchEmail,
 } from '../controller/controller-navbar.js'
 
-// window.onload = onLoadNavbar
-
-function onClickSearch() {
-  const query = elInputSearch.value
-  handleSearchEmail(query)
-}
 function onClickLogOut() {
   handleLogOut()
 }
-// function onLoadNavbar() {
-//   // elButtonSearch.onclick = onClickSearch
-//   handleLoadNavbar()
-// }
 
 function renderCurrentAccount(newCurrentAccount) {
   elCurrentAccount.textContent = newCurrentAccount
