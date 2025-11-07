@@ -4,6 +4,7 @@ import {
   handleClientReceiveIncoming,
   handleClientReceiveOutcoming,
 } from '../controller/controller-all_email.js'
+import { handleLoadNavbar } from '../controller/controller-navbar.js'
 
 window.onload = onLoadPageAllEmail
 
@@ -11,6 +12,7 @@ function onLoadPageAllEmail() {
   elIncomeButton.onclick = onClickButtonIncome
   elOutcomeButton.onclick = onClickButtonOutcome
   handleLoadPageAllEmail()
+  handleLoadNavbar()
 }
 function onClickButtonIncome() {
   handleClientReceiveIncoming()
@@ -37,6 +39,7 @@ function renderEmailsListEmailSheet(email) {
   const elGenerateEmailSheet = generateEmailSheet(email)
   elEmailsList.appendChild(elGenerateEmailSheet)
 }
+window.renderEmailsListEmailSheet = renderEmailsListEmailSheet
 
 function generateEmailSheet(email) {
   const elDivReceivedPage = document.createElement('div')
@@ -70,8 +73,8 @@ function generateEmailSheet(email) {
   elDivWrapFirstPDelivery.classList.add('fs-2')
   elDivWrapFirstPDelivery.textContent = email.subject
   elSpanWrapFrom.textContent = 'From'
-  elSpanWrapFromSpanFirst = email.sender
-  elSpanWrapFromSpanSecond = email.name
+  elSpanWrapFromSpanFirst.textContent = email.sender
+  // elSpanWrapFromSpanSecond = email.recipient
 
   elDivWrapSecond.setAttribute('height', '300px')
   elDivWrapSecond.setAttribute('width', '100%')

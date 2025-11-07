@@ -10,6 +10,7 @@ import {
 } from '../view/view-compose.js'
 
 function handleLoadPageCompose() {
+  console.log('ok')
   const isAuthorized = clientAuthorize()
   const currentAddress = getCurrentAccountAddress()
   if (isAuthorized) {

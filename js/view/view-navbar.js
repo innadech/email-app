@@ -4,7 +4,7 @@ import {
   handleSearchEmail,
 } from '../controller/controller-navbar.js'
 
-window.onload = onLoadNavbar
+// window.onload = onLoadNavbar
 
 function onClickSearch() {
   const query = elInputSearch.value
@@ -13,10 +13,10 @@ function onClickSearch() {
 function onClickLogOut() {
   handleLogOut()
 }
-function onLoadNavbar() {
-  // elButtonSearch.onclick = onClickSearch
-  handleLoadNavbar()
-}
+// function onLoadNavbar() {
+//   // elButtonSearch.onclick = onClickSearch
+//   handleLoadNavbar()
+// }
 
 function renderCurrentAccount(newCurrentAccount) {
   elCurrentAccount.textContent = newCurrentAccount

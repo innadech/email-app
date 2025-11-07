@@ -1,9 +1,11 @@
 import { handleLoadPageAddress } from '../controller/controller-address.js'
+import { handleLoadNavbar } from '../controller/controller-navbar.js'
 
 window.onload = onLoadPageAddress
 
 function onLoadPageAddress() {
   handleLoadPageAddress()
+  handleLoadNavbar()
 }
 function renderContainerAddress() {
   elContainerAddress.textContent = ''

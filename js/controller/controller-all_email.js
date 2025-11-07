@@ -14,6 +14,7 @@ import {
 } from '../model/client/clientEmails.js'
 
 function handleEmailSheet(id) {
+  console.log('handleEmailSheet')
   const email = getEmailById(id)
   if (email) renderEmailsListEmailSheet(email)
 }
