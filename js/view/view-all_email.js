@@ -8,10 +8,13 @@ import {
 import { handleLoadNavbar } from '../controller/controller-navbar.js'
 
 window.onload = onLoadPageAllEmail
-elButtonSearch.onclick = onClickSearch
+elFormSearch.onsubmit = onSubmitSearch
+// elButtonSearch.onclick = onClickSearch
 
-function onClickSearch() {
+function onSubmitSearch(e) {
+  e.preventDefault()
   const query = elInputSearch.value
+  console.log(query)
   handleSearchEmail(query)
 }
 

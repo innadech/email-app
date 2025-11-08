@@ -9,6 +9,7 @@ function handleLoadPageAddress() {
   const isAuthorized = clientAuthorize()
   if (isAuthorized) {
     renderelEmailsListAddress(parseAddresses())
+    console.log(parseAddresses())
   } else {
     renderContainerAddress()
   }

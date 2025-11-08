@@ -20,6 +20,7 @@ function handleEmailSheet(id) {
 }
 function handleSearchEmail(query) {
   const findedContactByQuery = filtrateEmailsByQuery(query)
+  console.log(findedContactByQuery)
   renderEmailsList(findedContactByQuery)
 }
 

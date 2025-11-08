@@ -1,7 +1,6 @@
 import {
   handleLogOut,
   handleLoadNavbar,
-  handleSearchEmail,
 } from '../controller/controller-navbar.js'
 
 function onClickLogOut() {

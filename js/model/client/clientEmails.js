@@ -51,11 +51,13 @@ function clientReceiveOutcoming() {
 }
 
 function filtrateEmailsByQuery(query) {
+  clientReceiveIncoming()
+  clientReceiveOutcoming()
   return clientAll().filter(
     email =>
-      email.firstname.includes(query) ||
-      email.lastname.includes(query) ||
-      email.email.includes(query)
+      email.sender.includes(query) ||
+      email.recipient.includes(query) ||
+      email.subject.includes(query)
   )
 }
 
@@ -64,6 +66,8 @@ function getEmailById(id) {
 }
 
 function parseAddresses() {
+  clientReceiveIncoming()
+  clientReceiveOutcoming()
   return Array.from(
     new Map([
       ...clientInbox.map(email => [
