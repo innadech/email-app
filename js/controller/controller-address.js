@@ -1,15 +1,16 @@
 import { clientAuthorize } from '../model/client/clientAccount.js'
-import { parseAddresses } from '../model/client/clientEmails.js'
+import { parseCounterparties } from '../model/client/clientEmails.js'
 import {
-  renderelEmailsListAddress,
+  renderDivCounterparties,
   renderContainerAddress,
 } from '../view/view-address.js'
 
 function handleLoadPageAddress() {
   const isAuthorized = clientAuthorize()
   if (isAuthorized) {
-    renderelEmailsListAddress(parseAddresses())
-    console.log(parseAddresses())
+    const counterparties = parseCounterparties()
+    console.log(counterparties)
+    renderDivCounterparties(counterparties)
   } else {
     renderContainerAddress()
   }

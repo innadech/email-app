@@ -7,6 +7,12 @@ import {
 
 const clientAccount = { current: null }
 
+// const clientCounterparties = []
+// const counterparty = {
+//   id: '111',
+//   address: 'qqq@qqq.qq',
+// }
+
 function setCurrentAccount(clientAccountCurrent) {
   clientAccount.current = clientAccountCurrent
 }

@@ -65,25 +65,43 @@ function getEmailById(id) {
   return clientAll().find(email => email.id === id)
 }
 
-function parseAddresses() {
+// function parseAddresses() {
+//   clientReceiveIncoming()
+//   clientReceiveOutcoming()
+//   return Array.from(
+//     new Map([
+//       ...clientInbox.map(email => [
+//         email.recipient,
+//         { id: email.id, email: email.sender },
+//       ]),
+//       ...clientOutbox.map(email => [
+//         email.sender,
+//         { id: email.id, email: email.recipient },
+//       ]),
+//     ]).values()
+//   )
+// }
+
+// function parseAddresses() {
+//   clientReceiveIncoming()
+//   clientReceiveOutcoming()
+//   return [
+//     ...clientInbox.map(email => ({ id: email.id, email: email.sender })),
+//     ...clientOutbox.map(email => ({ id: email.id, email: email.recipient })),
+//   ]
+// }
+
+function parseCounterparties() {
   clientReceiveIncoming()
   clientReceiveOutcoming()
-  return Array.from(
-    new Map([
-      ...clientInbox.map(email => [
-        email.recipient,
-        { id: email.id, email: email.recipient },
-      ]),
-      ...clientOutbox.map(email => [
-        email.sender,
-        { id: email.id, email: email.sender },
-      ]),
-    ]).values()
-  )
+  return [
+    ...clientInbox.map(({ id, sender }) => ({ id, address: sender })),
+    ...clientOutbox.map(({ id, sender }) => ({ id, address: sender })),
+  ]
 }
 
 export {
-  parseAddresses,
+  parseCounterparties,
   clientInbox,
   clientOutbox,
   clientSend,

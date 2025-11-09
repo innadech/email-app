@@ -13,16 +13,16 @@ function renderContainerAddress() {
   elH.textContent = 'Please login in'
   elContainerAddress.appendChild(elH)
 }
-function renderelEmailsListAddress(emails) {
-  elEmailsList.classList.remove('d-none')
-  elEmailsList.innerHTML = ''
-  for (const email of emails) {
-    const elGenerateAddress = generateAddress(email)
-    elEmailsList.appendChild(elGenerateAddress)
+function renderDivCounterparties(counterparties) {
+  elCounterparties.classList.remove('d-none')
+  elCounterparties.innerHTML = ''
+  for (const counterparty of counterparties) {
+    const elGenerateAddress = generateCounterparty(counterparty)
+    elCounterparties.appendChild(elGenerateAddress)
   }
 }
 
-function generateAddress(email) {
+function generateCounterparty(counterparty) {
   const elDivContainerWrap = document.createElement('div')
   const elDivContainer = document.createElement('div')
   const elDivRow = document.createElement('div')
@@ -52,12 +52,12 @@ function generateAddress(email) {
   elDivFormCheck.classList.add('form-check')
   elDivFormCheckInput.classList.add('form-check-input')
   elDivFormCheckInput.setAttribute('type', 'checkbox')
-  elDivFormCheckInput.setAttribute('id', email.id)
+  elDivFormCheckInput.setAttribute('id', counterparty.id)
   elDivFormCheckLabel.classList.add('form-check-label')
   // elDivFormCheckLabel.setAttribute('for', 'checkDefault')
 
-  elDivColSecond.textContent = email.email
-  elDivFormCheckLabel.textContent = email.id
+  elDivColSecond.textContent = counterparty.address
+  elDivFormCheckLabel.textContent = counterparty.id
 
   // elDivColThird.textContent = email.date
 
@@ -73,4 +73,4 @@ function generateAddress(email) {
   return elDivContainerWrap
 }
 
-export { renderelEmailsListAddress, renderContainerAddress }
+export { renderDivCounterparties, renderContainerAddress }
