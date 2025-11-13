@@ -96,12 +96,28 @@ function parseCounterparties() {
   clientReceiveOutcoming()
   return [
     ...clientInbox.map(({ id, sender }) => ({ id, address: sender })),
-    ...clientOutbox.map(({ id, sender }) => ({ id, address: sender })),
+    ...clientOutbox.map(({ id, recipient }) => ({ id, address: recipient })),
   ]
 }
 
+function removeDuplicates(array) {
+  return Array.from(new Set(array))
+}
+function removeDuplicatesObjects(objects) {
+  const getObjectByKey = key => objects.find(o => o.x === key)
+  const keys = objects.map(o => o.x)
+  const uniqueKeys = removeDuplicates(keys)
+  const uniqueObjects = uniqueKeys.map(getObjectByKey)
+  return uniqueObjects
+}
+
+function parseRemoveDuplicates() {
+  const parsed = parseCounterparties()
+  return removeDuplicatesObjects(parsed)
+}
 export {
-  parseCounterparties,
+  // parseCounterparties,
+  parseRemoveDuplicates,
   clientInbox,
   clientOutbox,
   clientSend,

@@ -57,7 +57,7 @@ function generateCounterparty(counterparty) {
   // elDivFormCheckLabel.setAttribute('for', 'checkDefault')
 
   elDivColSecond.textContent = counterparty.address
-  elDivFormCheckLabel.textContent = counterparty.id
+  // elDivFormCheckLabel.textContent = counterparty.id
 
   // elDivColThird.textContent = email.date
 

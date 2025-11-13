@@ -1,5 +1,5 @@
 import { clientAuthorize } from '../model/client/clientAccount.js'
-import { parseCounterparties } from '../model/client/clientEmails.js'
+import { parseRemoveDuplicates } from '../model/client/clientEmails.js'
 import {
   renderDivCounterparties,
   renderContainerAddress,
@@ -8,7 +8,7 @@ import {
 function handleLoadPageAddress() {
   const isAuthorized = clientAuthorize()
   if (isAuthorized) {
-    const counterparties = parseCounterparties()
+    const counterparties = parseRemoveDuplicates()
     console.log(counterparties)
     renderDivCounterparties(counterparties)
   } else {
