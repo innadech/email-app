@@ -1,3 +1,4 @@
+import { handleLoadNavbar } from '../controller/controller-navbar.js'
 import { handleClientRegister } from '../controller/controller-sign-up.js'
 
 // эл | штмл элемент | какой именно
@@ -11,6 +12,7 @@ import { handleClientRegister } from '../controller/controller-sign-up.js'
 // REPL
 
 elFormSignUp.onsubmit = onSubmitSignUp
+window.onload = onLoadSignUp
 
 function onSubmitSignUp(e) {
   const account = Object.fromEntries(new FormData(e.target))
@@ -23,6 +25,9 @@ function renderDivSignUp(text) {
   elSignUpPage.innerHTML = ''
   elH.textContent = text
   elSignUpPage.appendChild(elH)
+}
+function onLoadSignUp() {
+  handleLoadNavbar()
 }
 
 export { renderDivSignUp }

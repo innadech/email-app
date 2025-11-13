@@ -1,3 +1,4 @@
+import { handleLoadNavbar } from '../controller/controller-navbar.js'
 import {
   handleClientAuthenticate,
   handleLoadPageLogin,
@@ -17,6 +18,7 @@ function onSubmitSignIn(e) {
 
 function onLoadLogin() {
   handleLoadPageLogin()
+  handleLoadNavbar()
 }
 
 // renderContainerSignIn
