@@ -104,8 +104,8 @@ function removeDuplicates(array) {
   return Array.from(new Set(array))
 }
 function removeDuplicatesObjects(objects) {
-  const getObjectByKey = key => objects.find(o => o.x === key)
-  const keys = objects.map(o => o.x)
+  const getObjectByKey = key => objects.find(o => o.address === key)
+  const keys = objects.map(o => o.address)
   const uniqueKeys = removeDuplicates(keys)
   const uniqueObjects = uniqueKeys.map(getObjectByKey)
   return uniqueObjects
