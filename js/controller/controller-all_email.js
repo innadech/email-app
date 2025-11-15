@@ -3,6 +3,7 @@ import {
   renderEmailsListEmailSheet,
   renderEmailsList,
   renderelAllEmailBox,
+  renderEmailsListOutcome,
 } from '../view/view-all_email.js'
 import {
   getEmailById,
@@ -40,7 +41,7 @@ function handleClientReceiveIncoming() {
 
 function handleClientReceiveOutcoming() {
   clientReceiveOutcoming()
-  renderEmailsList(clientOutbox)
+  renderEmailsListOutcome(clientOutbox)
 }
 
 export {
